@@ -38,27 +38,27 @@
         </form>
     </article>
 </section>
-    {{-- <section class="body-sign">
+{{-- <section class="body-sign">
                                 <div class="checkbox-custom checkbox-default">
                                     <input name="remember" id="RememberMe" type="checkbox" {{ old('remember') ? 'checked' : '' }}>
-                                    <label for="RememberMe">Recordarme</label>
-                                </div>
-    </section> --}}
+<label for="RememberMe">Recordarme</label>
+</div>
+</section> --}}
 @endsection
 @push('scripts')
-    <script>
-        var inputPassword = document.getElementById('password');
-        var btnEye = document.getElementById('btnEye');
-        btnEye.addEventListener('click', function () {
-            if (inputPassword.classList.contains('hide-password')) {
-                inputPassword.type = 'text';
-                inputPassword.classList.remove('hide-password');
-                btnEye.innerHTML = '<i class="fa fa-eye-slash"></i>'
-            } else {
-                inputPassword.type = 'password';
-                inputPassword.classList.add('hide-password');
-                btnEye.innerHTML = '<i class="fa fa-eye"></i>'
-            }
-        });
-    </script>
+<script>
+    var inputPassword = document.getElementById('password');
+    var btnEye = document.getElementById('btnEye');
+    btnEye.addEventListener('click', function() {
+        if (inputPassword.classList.contains('hide-password')) {
+            inputPassword.type = 'text';
+            inputPassword.classList.remove('hide-password');
+            btnEye.innerHTML = '<i class="fa fa-eye-slash"></i>'
+        } else {
+            inputPassword.type = 'password';
+            inputPassword.classList.add('hide-password');
+            btnEye.innerHTML = '<i class="fa fa-eye"></i>'
+        }
+    });
+</script>
 @endpush

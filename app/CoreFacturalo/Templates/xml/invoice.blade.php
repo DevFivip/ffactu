@@ -153,6 +153,12 @@
             @endif
         </cac:Party>
     </cac:AccountingCustomerParty>
+    @if(true)
+    <cac:PaymentTerms>
+        <cbc:ID>FormaPago</cbc:ID>
+        <cbc:PaymentMeansID>Contado</cbc:PaymentMeansID>
+    </cac:PaymentTerms>
+    @endif
     @if($document->detraction)
         @php($detraction = $document->detraction)
         <cac:PaymentMeans>
