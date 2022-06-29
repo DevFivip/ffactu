@@ -11,10 +11,9 @@ const path = require('node:path');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
+mix.js('resources/js/app.js', 'public/js').vue()
    .sass('resources/sass/style.scss', 'public/css/app.css')
    .sass('resources/sass/auth.scss', 'public/css/auth.css')
-   .extract(['vue'])
    .version();
 
 mix.webpackConfig({
@@ -36,6 +35,6 @@ mix.webpackConfig({
             '@viewsModuleDocumentary': path.resolve(__dirname, 'modules/DocumentaryProcedure/Resources/assets/js/views'),
         }
     }
-}).sourceMaps()
+})
 
 mix.disableSuccessNotifications();
