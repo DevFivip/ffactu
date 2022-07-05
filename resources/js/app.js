@@ -10,10 +10,14 @@ require('./bootstrap');
 // window.Vue = require('vue');
 import Vue from 'vue'
 import ElementUI from 'element-ui'
+import Buefy from 'buefy'
 import Axios from 'axios'
 
 import lang from 'element-ui/lib/locale/lang/es'
 import locale from 'element-ui/lib/locale'
+
+import 'buefy/dist/buefy.css'
+
 locale.use(lang)
 
 ElementUI.Select.computed.readonly = function () {
@@ -23,7 +27,8 @@ ElementUI.Select.computed.readonly = function () {
 
 export default ElementUI;
 
-//Vue.use(ElementUI)
+Vue.use(Buefy)
+
 Vue.use(ElementUI, { size: 'small' })
 Vue.prototype.$eventHub = new Vue()
 Vue.prototype.$http = Axios
@@ -36,6 +41,8 @@ Vue.prototype.$http = Axios
 // Vue.component('table-column', TableColumn);
 
 Vue.component('tenant-dashboard-index', require('../../modules/Dashboard/Resources/assets/js/views/index.vue').default);
+Vue.component('tenant-navbar-index', require('./components/V2Header.vue').default);
+Vue.component('tenant-sidenavbar-index', require('./components/SideNavbar.vue').default);
 
 Vue.component('x-graph', require('./components/graph/src/Graph.vue').default);
 Vue.component('x-graph-line', require('./components/graph/src/GraphLine.vue').default);

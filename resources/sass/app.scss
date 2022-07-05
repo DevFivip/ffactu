@@ -34,13 +34,14 @@ Global Styles
 }
 
 body {
-    background: $sidebar;
+    // background: $sidebar;
     font-family: $bodyfont;
     margin: 0;
     overflow-x: hidden;
     color: $bodytext;
     font-weight: 300;
     font-size: 13px;
+    background-color: rgb(249 250 251);
 }
 
 html {
