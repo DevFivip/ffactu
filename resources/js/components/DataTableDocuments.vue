@@ -13,8 +13,8 @@
                             <div class="modal-card">
                                 <header class="modal-card-head">
                                     <p class="modal-card-title">Buscar Comprobantes</p>
-                                    <button  @click="setModal()" class="delete" aria-label="close"></button>
-                                    
+                                    <button @click="setModal()" class="delete" aria-label="close"></button>
+
                                 </header>
                                 <section class="modal-card-body">
 
@@ -193,7 +193,7 @@
                                             </p>
                                         </div>
                                     </div>
-                                 </section>
+                                </section>
                                 <footer class="modal-card-foot">
                                     <el-button class="submit" type="primary" @click.prevent="getRecordsByFilter"
                                         :loading="loading_submit" icon="el-icon-search">Buscar</el-button>
@@ -205,7 +205,7 @@
                         </div>
                     </div>
                 </div>
-              </div>
+            </div>
 
             <div class="col-md-12">
                 <div id="scroll1" style="overflow-x:auto;">
@@ -306,8 +306,8 @@ export default {
         await this.cargalo()
     },
     methods: {
-        setModal(){
-            this.isOpenModal = !this.isOpenModal 
+        setModal() {
+            this.isOpenModal = !this.isOpenModal
         },
         searchRemoteItems(input) {
 

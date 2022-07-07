@@ -12,12 +12,12 @@
           <template #label>
             Devices
             <b-dropdown aria-role="list" class="is-pulled-right" position="is-bottom-left">
-                <template #trigger>
-                    <b-icon icon="dots-vertical"></b-icon>
-                </template>
-                <b-dropdown-item aria-role="listitem">Action</b-dropdown-item>
-                <b-dropdown-item aria-role="listitem">Another action</b-dropdown-item>
-                <b-dropdown-item aria-role="listitem">Something else</b-dropdown-item>
+              <template #trigger>
+                <b-icon icon="dots-vertical"></b-icon>
+              </template>
+              <b-dropdown-item aria-role="listitem">Action</b-dropdown-item>
+              <b-dropdown-item aria-role="listitem">Another action</b-dropdown-item>
+              <b-dropdown-item aria-role="listitem">Something else</b-dropdown-item>
             </b-dropdown>
           </template>
         </b-menu-item>
@@ -43,6 +43,16 @@ export default {
     return {
       isActive: true
     }
+  },
+  props: {
+    path_1: String,
+    path_2: String,
+    path_0: String,
+  },
+  mounted(){
+    console.log(this.path_1);
+    console.log(this.path_2);
+    console.log(this.path_0);
   }
 }
 </script>

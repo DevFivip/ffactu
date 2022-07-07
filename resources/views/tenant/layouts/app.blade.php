@@ -25,8 +25,6 @@
     <link rel="stylesheet" href="{{asset('porto-light/vendor/jquery-ui/jquery-ui.theme.css')}}" />
 
 
-
-
     @stack('styles')
 
 
@@ -36,22 +34,19 @@
     @endif
     <script defer src="{{ mix('js/app.js') }}"></script>
 
+    <script defer src="https://unpkg.com/alpinejs@3.10.2/dist/cdn.min.js"></script>
+
 </head>
 
 <body class="">
-    <div id="main-wrapper">
-        @include('tenant.layouts.partials.header')
-
-        <div class="">
-            <div class="columns">
-                <div class="column is-2">
-                    @include('tenant.layouts.partials.sidebar')
-                </div>
-                <div class="column is-10">
-                    @yield('content')
-                    @yield('package-contents')
-                </div>
-            </div>
+    @include('tenant.layouts.partials.header')
+    <div class="columns">
+        <div class="column is-2">
+            @include('tenant.layouts.partials.sidebar')
+        </div>
+        <div class="column is-10" id="main-wrapper">
+            @yield('content')
+            @yield('package-contents')
         </div>
     </div>
     <!-- <section class="body"> -->
@@ -132,7 +127,6 @@
         }
     </script> -->
     <!-- <script src="//code.tidio.co/1vliqewz9v7tfosw5wxiktpkgblrws5w.js"></script> -->
-    <!-- <script defer src="https://unpkg.com/alpinejs@3.10.2/dist/cdn.min.js"></script> -->
 </body>
 
 </html>
