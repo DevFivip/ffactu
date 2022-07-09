@@ -3,8 +3,7 @@
 
         <b-breadcrumb separator="has-bullet-separator" size="is-small">
             <b-breadcrumb-item href="/dashboard">Dashboard</b-breadcrumb-item>
-            <b-breadcrumb-item href="#">Docs</b-breadcrumb-item>
-            <b-breadcrumb-item href="#" active>Breadcrumb</b-breadcrumb-item>
+            <b-breadcrumb-item href="#" active>Comprobantes</b-breadcrumb-item>
         </b-breadcrumb>
 
         <section class="hero is-primary is-rounded">
@@ -88,7 +87,6 @@
                     <b-dropdown-item v-for="(column, index) in columns" :key="index" aria-role="listitem">
                         <b-checkbox v-model="column.visible">{{ column.title }}</b-checkbox>
                     </b-dropdown-item>
-
                 </b-dropdown>
 
 <!-- 

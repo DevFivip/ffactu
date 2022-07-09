@@ -1,17 +1,13 @@
 <template> 
     <section class="card">
-        <div class="card-body">
+        <div class="card-content">
 
-            <template v-if="loader">
+            <!-- <template v-if="loader">
                 <vcl-table :rows="10" :columns="2"></vcl-table>
-            </template>
+            </template> -->
 
             <div v-show="!loader">
-                <h2 class="card-title">Productos por agotarse
-                    <el-tooltip class="item" effect="dark" content="Aplica filtro por establecimiento" placement="top-start">
-                        <i class="fa fa-info-circle"></i>
-                    </el-tooltip>
-                </h2>
+                <p class="subtitle">Productos por agotarse </p>
                 <simple-data-table :resource="resource">
                     <tr slot="heading">
                         <th>#</th>
@@ -33,8 +29,7 @@
                         <td  class="text-center">
                             <button type="button" style="min-width: 41px" class="btn waves-effect waves-light btn-xs btn-primary m-1__2"
                                         @click.prevent="clickProvision()"><i class="fas fa-shopping-cart"></i></button>
-                        </td> 
-                            
+                        </td>  
                     </tr>
                 </simple-data-table>
             </div>

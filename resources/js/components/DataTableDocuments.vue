@@ -6,7 +6,7 @@
 
                 <div class="row">
                     <div class="col-lg-8 col-md-8 mb-2">
-                        <b-button label="Launch component modal" type="is-primary" size="is-small"
+                        <b-button label="Filtro de Documentos" type="is-primary" size="is-small"
                             @click="setModal()" />
                         <div class="modal" v-bind:class="{ 'modal is-active': isOpenModal }">
                             <div class="modal-background"></div>
@@ -14,11 +14,8 @@
                                 <header class="modal-card-head">
                                     <p class="modal-card-title">Buscar Comprobantes</p>
                                     <button @click="setModal()" class="delete" aria-label="close"></button>
-
                                 </header>
                                 <section class="modal-card-body">
-
-
                                     <div class="field is-horizontal">
                                         <div class="field-body">
                                             <div class="field">
