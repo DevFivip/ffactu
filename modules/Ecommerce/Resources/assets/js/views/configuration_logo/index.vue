@@ -2,25 +2,20 @@
  <template>
   <div class="col-lg-6 col-md-12">
     <div class="card">
-      <div class="card-header bg-info">
+      <!-- <div class="card-header bg-info">
         <h3 class="my-0">Logo</h3>
-      </div>
-      <div class="card-body">
+      </div> -->
+      <div class="card-content">
+        <h3 class="title is-3">Logo</h3>
         <form autocomplete="off" @submit.prevent="submit">
           <div class="form-body">
             <div class="row">
               <div class="col-md-12">
-                <div class="form-group" :class="{'has-danger': errors.token_public_culqui}">
+                <div class="form-group" :class="{ 'has-danger': errors.token_public_culqui }">
                   <label class="control-label">Logo</label>
                   <el-input v-model="form.logo_store" :readonly="true">
-                    <el-upload
-                      slot="append"
-                      :headers="headers"
-                      :data="{'type': 'logo_store'}"
-                      action="/ecommerce/uploads"
-                      :show-file-list="false"
-                      :on-success="successUpload"
-                    >
+                    <el-upload slot="append" :headers="headers" :data="{ 'type': 'logo_store' }"
+                      action="/ecommerce/uploads" :show-file-list="false" :on-success="successUpload">
                       <el-button type="primary" icon="el-icon-upload"></el-button>
                     </el-upload>
                   </el-input>
@@ -103,7 +98,7 @@ export default {
           this.loading_submit = false;
         });
     },
-    submit_paypal() {}
+    submit_paypal() { }
   }
 };
 </script>

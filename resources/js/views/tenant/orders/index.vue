@@ -1,8 +1,15 @@
-
-
 <template>
   <div v-loading="loading_submit">
-    <div class="page-header pr-0">
+
+        <section class="hero is-primary is-rounded">
+            <div class="hero-body">
+                <p class="title">
+                    Pedidos
+                </p>
+            </div>
+        </section>
+
+    <!-- <div class="page-header pr-0">
       <h2>
         <a href="/dashboard">
           <i class="fas fa-tachometer-alt"></i>
@@ -14,12 +21,12 @@
         </li>
       </ol>
       <div class="right-wrapper pull-right"></div>
-    </div>
+    </div> -->
     <div class="card mb-0">
-      <div class="card-header bg-info">
+      <!-- <div class="card-header bg-info">
         <h3 class="my-0">Listado de Pedidos Tienda Virtual</h3>
-      </div>
-      <div class="card-body">
+      </div> -->
+      <div class="card-content">
         <data-table :resource="resource">
           <tr slot="heading" width="100%">
             <th>#</th>

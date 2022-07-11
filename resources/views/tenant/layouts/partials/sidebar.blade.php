@@ -3,7 +3,6 @@ $path = explode('/', request()->path());
 $path[1] = (array_key_exists(1, $path)> 0)?$path[1]:'';
 $path[2] = (array_key_exists(2, $path)> 0)?$path[2]:'';
 $path[0] = ($path[0] === '')?'documents':$path[0];
-
 @endphp
 <!-- <tenant-sidenavbar-index path_1="{{$path[1]}}" path_2="{{$path[2]}}" path_0="{{$path[0]}}"></tenant-sidenavbar-index> -->
 <aside id="sidebar-left is-hidden-touch" class="menu">

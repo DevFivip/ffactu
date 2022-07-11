@@ -1,6 +1,21 @@
 <template>
     <div>
-        <div class="page-header pr-0">
+
+
+        <section class="hero is-primary is-rounded">
+            <div class="hero-body">
+                <p class="title">
+                    Caja
+                </p>
+                <div class="buttons" v-if="open_cash">
+                    <b-button @click.prevent="clickDownloadGeneral()"><i class="fas fa-shopping-cart"></i> Reporte general</b-button>
+                    <b-button @click.prevent="clickCreate()"><i class="fas fa-shopping-cart"></i> Aperturar caja chica POS</b-button>
+                </div>
+            </div>
+        </section>
+
+        
+        <!-- <div class="page-header pr-0">
             <h2><a href="/dashboard"><i class="fas fa-tachometer-alt"></i></a></h2>
             <ol class="breadcrumbs">
                 <li class="active"><span>Cajas</span></li>
@@ -8,19 +23,18 @@
             <div class="right-wrapper pull-right">
                 <template  v-if="open_cash">
                     <button type="button" class="btn btn-custom btn-sm  mt-2 mr-2" @click.prevent="clickDownloadGeneral()"><i class="fas fa-shopping-cart"></i> Reporte general</button>
-
                     <button type="button" class="btn btn-custom btn-sm  mt-2 mr-2" @click.prevent="clickCreate()"><i class="fas fa-shopping-cart"></i> Aperturar caja chica POS</button>
-                </template>
+                </template> -->
                 <!-- <template v-else>                 -->
                     <!-- <button type="button" class="btn btn-success btn-sm  mt-2 mr-2" @click.prevent="clickOpenPos()"><i class="fas fa-shopping-cart" ></i> Aperturar punto de venta</button> -->
                 <!-- </template> -->
-            </div>
-        </div>
+            <!-- </div>
+        </div> -->
         <div class="card mb-0">
-            <div class="card-header bg-info">
+            <!-- <div class="card-header bg-info">
                 <h3 class="my-0">Listado de cajas</h3>
-            </div>
-            <div class="card-body">
+            </div> -->
+            <div class="card-content">
                 <data-table :resource="resource">
                     <tr slot="heading">
                         <th>#</th>

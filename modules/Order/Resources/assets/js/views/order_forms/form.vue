@@ -34,7 +34,7 @@
                             <div class="form-group" :class="{'has-danger': errors.customer_id}">
                                 <label class="control-label font-weight-bold">
                                     Cliente<span class="text-danger"> *</span>
-                                    <a href="#" @click.prevent="showDialogNewPerson = true">[+ Nuevo]</a>
+                                    <a href="#" @click.prevent="showDialogNewPerson = true">Nuevo</a>
                                 </label>
                                 <el-select v-model="form.customer_id" filterable>
                                     <el-option v-for="option in customers" :key="option.id" :value="option.id" :label="option.description"></el-option>
@@ -169,7 +169,7 @@
                             <div class="form-group" :class="{'has-danger': errors.dispatcher_id}">
                                 <label class="control-label font-weight-bold">
                                     Transportista<span class="text-danger"> *</span>
-                                    <a href="#" @click.prevent="showDialogNewDispatcher = true">[+ Nuevo]</a>
+                                    <a href="#" @click.prevent="showDialogNewDispatcher = true">Nuevo</a>
                                 </label>
                                 <el-select v-model="form.dispatcher_id" filterable>
                                     <el-option v-for="option in dispatchers" :key="option.id" :value="option.id" :label="option.description"></el-option>
@@ -182,7 +182,7 @@
                             <div class="form-group" :class="{'has-danger': errors.driver_id}">
                                 <label class="control-label font-weight-bold">
                                     Conductor<span class="text-danger"> *</span>
-                                    <a href="#" @click.prevent="showDialogNewDriver = true">[+ Nuevo]</a>
+                                    <a href="#" @click.prevent="showDialogNewDriver = true">Nuevo</a>
 
                                 </label>
                                 <el-select v-model="form.driver_id" filterable>

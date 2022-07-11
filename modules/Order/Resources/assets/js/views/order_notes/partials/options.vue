@@ -68,7 +68,7 @@
           <div class="form-group">
             <label class="control-label font-weight-bold text-info">
               Cliente
-              <!-- <a href="#" @click.prevent="showDialogNewPerson = true">[+ Nuevo]</a> -->
+              <!-- <a href="#" @click.prevent="showDialogNewPerson = true">Nuevo</a> -->
             </label>
             <el-select
               v-model="document.customer_id"

@@ -6,7 +6,7 @@
                     <div class="form-group" :class="{'has-danger': errors.items}">
                         <label class="control-label">
                             Producto
-                            <a href="#" @click.prevent="showDialogNewItem = true">[+ Nuevo]</a>
+                            <a href="#" @click.prevent="showDialogNewItem = true">Nuevo</a>
                         </label>
                         <el-select v-model="form.item" filterable>
                             <el-option v-for="option in items" :key="option.id" :value="option.id" :label="option.full_description"></el-option>

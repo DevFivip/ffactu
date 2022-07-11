@@ -58,7 +58,7 @@
                                 <div class="form-group" :class="{'has-danger': errors.supplier_id}">
                                     <label class="control-label">
                                         Proveedor
-                                        <a href="#" @click.prevent="showDialogNewPerson = true">[+ Nuevo]</a>
+                                        <a href="#" @click.prevent="showDialogNewPerson = true">Nuevo</a>
                                     </label>
                                     <el-select v-model="form.supplier_id" filterable @change="changeSupplier" ref="select_person" @keyup.native="keyupSupplier" @keyup.enter.native="keyupEnterSupplier">
                                         <el-option v-for="option in suppliers" :key="option.id" :value="option.id" :label="option.description"></el-option>

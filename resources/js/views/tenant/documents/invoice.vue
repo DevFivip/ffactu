@@ -16,11 +16,7 @@
                             <address class="ib mr-2">
                                 <span class="font-weight-bold">{{ company.name }}</span>
                                 <br>
-                                <div v-if="establishment.address != '-'">{{ establishment.address }}, </div> {{
-                                        establishment.district.description
-                                }}, {{ establishment.province.description }}, {{
-        establishment.department.description
-}} - {{ establishment.country.description }}
+                                <div v-if="establishment.address != '-'">{{ establishment.address }}, </div> {{ establishment.district.description}}, {{ establishment.province.description }}, {{establishment.department.description}} - {{ establishment.country.description }}
                                 <br>
                                 {{ establishment.email }} - <span
                                     v-if="establishment.telephone != '-'">{{ establishment.telephone }}</span>
@@ -104,7 +100,7 @@
                                         <template
                                             v-if="(form.operation_type_id == '1001' || form.operation_type_id == '1004') && has_data_detraction">
                                             <a href="#" @click.prevent="showDialogDocumentDetraction = true"
-                                                class="text-center font-weight-bold text-info"> [+ Ver datos]</a>
+                                                class="text-center font-weight-bold text-info">Ver datos</a>
                                         </template>
 
                                     </label>
@@ -201,11 +197,11 @@
                             </div>
                             <div class="col-lg-2">
                                 <div class="form-group" :class="{ 'has-danger': errors.exchange_rate_sale }">
-                                    <label class="control-label">Tipo de cambio
-                                        <el-tooltip class="item" effect="dark"
-                                            content="Tipo de cambio del día, extraído de SUNAT" placement="top-end">
-                                            <i class="fa fa-info-circle"></i>
-                                        </el-tooltip>
+                                    <label class="control-label">
+                                         <b-tooltip label="Tipo de cambio del día, extraído de SUNAT"
+                                                        position="is-bottom">
+                                            <span class="is-underlined">Tipo de cambio</span>
+                                        </b-tooltip>
                                     </label>
                                     <el-input v-model="form.exchange_rate_sale"></el-input>
                                     <small class="form-control-feedback" v-if="errors.exchange_rate_sale"
@@ -342,7 +338,7 @@
                                         <label class="font-weight-bold control-label">
                                             Comprobantes anticipados
                                             <a href="#" @click.prevent="clickAddPrepayment"
-                                                class="text-center font-weight-bold text-info">[+ Agregar]</a>
+                                                class="text-center font-weight-bold text-info">+ Agregar</a>
                                         </label>
                                         <table style="width: 100%">
                                             <tr v-for="(row, index) in form.prepayments" :key="index">
@@ -378,13 +374,13 @@
 
                                 <div class="col-lg-8 mt-2" v-if="isActiveBussinessTurn('hotel')">
                                     <a href="#" @click.prevent="clickAddDocumentHotel"
-                                        class="text-center font-weight-bold text-info">[+ Datos personales para reserva
-                                        de hospedaje]</a>
+                                        class="text-center font-weight-bold text-info">Datos personales para reserva
+                                        de hospedaje</a>
                                 </div>
                                 <div class="col-lg-8 mt-2" v-if="isActiveBussinessTurn('transport')">
                                     <a href="#" @click.prevent="clickAddDocumentTransport"
-                                        class="text-center font-weight-bold text-info">[+ Datos para transporte de
-                                        pasajeros]</a>
+                                        class="text-center font-weight-bold text-info">Datos para transporte de
+                                        pasajeros</a>
                                 </div>
                             </template>
                         </div>
@@ -410,8 +406,7 @@
                                                             <label class="control-label">
                                                                 Guias
                                                                 <a href="#" @click.prevent="clickAddGuide"
-                                                                    class="text-center font-weight-bold text-info">[+
-                                                                    Agregar]</a>
+                                                                    class="text-center font-weight-bold text-info">Agregar</a>
                                                             </label>
                                                             <table style="width: 100%">
                                                                 <tr v-for="(guide, index) in form.guides">
@@ -475,8 +470,7 @@
                                                             <label class="control-label">
                                                                 Guias
                                                                 <a href="#" @click.prevent="clickAddGuide"
-                                                                    class="text-center font-weight-bold text-info">[+
-                                                                    Agregar]</a>
+                                                                    class="text-center font-weight-bold text-info">Agregar</a>
                                                             </label>
                                                             <table style="width: 100%">
                                                                 <tr v-for="(guide, index) in form.guides">

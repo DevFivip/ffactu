@@ -1,92 +1,84 @@
 <template>
     <div class="container-fluid p-0">
-        <div class="row page-header pr-0" style="height:auto">
-            <Keypress
-                key-event="keyup"
-                :key-code="112"
-                @success="handleFn112"
-            />
-            <!-- <Keypress key-event="keyup" :key-code="113" @success="handleFn113" /> -->
+        <nav class="navbar is-light">
+            <Keypress key-event="keyup" :key-code="112" @success="handleFn112" />
+            <div id="navbarExampleTransparentExample" class="navbar-menu">
+                <div class="navbar-start">
+                    <a href="#" @click="back()" class="button is-primary mr-2">
+                        <i class="fa fa-border-all"></i>
+                    </a>
+                    <a href="#" :disabled="place == 'cat2'" @click="setView('cat2')" class="button is-primary mr-2">
+                        <i class="fa fa-bars"></i>
+                    </a>
+                    <a href="#" :disabled="place == 'cat3'" @click="setView('cat3')" class="button is-primary mr-2">
+                        <i class="fas fa-list-ul"></i>
+                    </a>
+                    <a href="#" :disabled="place == 'cat'" @click="back()" class="button is-primary mr-2">
+                        <i class="fa fa-undo"></i>
+                    </a>
+                    <span class="navbar-item">
+                        <el-switch v-model="search_item_by_barcode" active-text="Usar escaner de código de barras"
+                            @change="changeSearchItemBarcode"></el-switch>
+                    </span>
+                </div>
 
-            <!-- <h2 class="text-sm">POS</h2>
-      <div class="right-wrapper pull-right">
-        <h2 class="text-sm pr-5">T/C 3.321</h2>
-        <h2 class="text-sm">{{user.name}}</h2>
-      </div> -->
-            <div class="col-md-4">
-                <!-- <h2 class="text-sm">POS</h2> -->
-                <h2>
-                    <el-switch
-                        v-model="search_item_by_barcode"
-                        active-text="Buscar con escaner de código de barras"
-                        @change="changeSearchItemBarcode"
-                    ></el-switch>
+
+                <div class="navbar-end">
+                    <a class="navbar-item" href="#">
+                        T/C {{ form.exchange_rate_sale }}
+                    </a>
+                    <a class="navbar-item">
+                        {{ user.name }}
+                    </a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- <div class="row page-header pr-0" style="height:auto">
+            <Keypress key-event="keyup" :key-code="112" @success="handleFn112" /> -->
+        <!-- <Keypress key-event="keyup" :key-code="113" @success="handleFn113" /> -->
+
+        <!-- <h2 class="text-sm">POS</h2>
+                    <div class="right-wrapper pull-right">
+                      <h2 class="text-sm pr-5">T/C 3.321</h2>
+                      <h2 class="text-sm">{{user.name}}</h2>
+                    </div> -->
+        <!-- <div class="col-md-4"> -->
+        <!-- <h2 class="text-sm">POS</h2> -->
+        <!-- <h2>
+                    <el-switch v-model="search_item_by_barcode" active-text="Buscar con escaner de código de barras"
+                        @change="changeSearchItemBarcode"></el-switch>
                 </h2>
             </div>
             <div class="col-md-4">
                 <h2>
-                    <el-tooltip
-                        class="item"
-                        effect="dark"
-                        content="Todas las categorías"
-                        placement="top-start"
-                    >
-                        <button
-                            type="button"
-                            @click="back()"
-                            class="btn btn-custom btn-sm  mt-2 mr-2 mr-sm-1"
-                        >
+                    <el-tooltip class="item" effect="dark" content="Todas las categorías" placement="top-start">
+                        <button type="button" @click="back()" class="btn btn-custom btn-sm  mt-2 mr-2 mr-sm-1">
                             <i class="fa fa-border-all"></i>
                         </button>
                     </el-tooltip>
                 </h2>
                 <h2>
-                    <el-tooltip
-                        class="item"
-                        effect="dark"
-                        content="Categorías y productos"
-                        placement="top-start"
-                    >
-                        <button
-                            type="button"
-                            :disabled="place == 'cat2'"
-                            @click="setView('cat2')"
-                            class="btn btn-custom btn-sm  mt-2 mr-2 mr-sm-1"
-                        >
+                    <el-tooltip class="item" effect="dark" content="Categorías y productos" placement="top-start">
+                        <button type="button" :disabled="place == 'cat2'" @click="setView('cat2')"
+                            class="btn btn-custom btn-sm  mt-2 mr-2 mr-sm-1">
                             <i class="fa fa-bars"></i>
                         </button>
                     </el-tooltip>
                 </h2>
                 <h2>
-                    <el-tooltip
-                        class="item"
-                        effect="dark"
-                        content="Listado de todos los productos"
-                        placement="top-start"
-                    >
-                        <button
-                            type="button"
-                            :disabled="place == 'cat3'"
-                            @click="setView('cat3')"
-                            class="btn btn-custom btn-sm  mt-2 mr-2 mr-sm-1"
-                        >
+                    <el-tooltip class="item" effect="dark" content="Listado de todos los productos"
+                        placement="top-start">
+                        <button type="button" :disabled="place == 'cat3'" @click="setView('cat3')"
+                            class="btn btn-custom btn-sm  mt-2 mr-2 mr-sm-1">
                             <i class="fas fa-list-ul"></i>
                         </button>
                     </el-tooltip>
                 </h2>
                 <h2>
-                    <el-tooltip
-                        class="item"
-                        effect="dark"
-                        content="Regresar"
-                        placement="top-start"
-                    >
-                        <button
-                            type="button"
-                            :disabled="place == 'cat'"
-                            @click="back()"
-                            class="btn btn-custom btn-sm  mt-2 mr-2 mr-sm-1"
-                        >
+                    <el-tooltip class="item" effect="dark" content="Regresar" placement="top-start">
+                        <button type="button" :disabled="place == 'cat'" @click="back()"
+                            class="btn btn-custom btn-sm  mt-2 mr-2 mr-sm-1">
                             <i class="fa fa-undo"></i>
                         </button>
                     </el-tooltip>
@@ -100,70 +92,39 @@
                     <h2 class="text-sm  pull-right">{{ user.name }}</h2>
                 </div>
             </div>
-        </div>
+        </div> -->
 
-        <div
-            v-if="!is_payment"
-            class="row col-lg-12 m-0 p-0"
-            v-loading="loading"
-        >
+        <div v-if="!is_payment" class="row col-lg-12 m-0 p-0" v-loading="loading">
             <div class="col-lg-8 col-md-6 px-4 pt-3 hyo">
                 <template v-if="!search_item_by_barcode">
-                    <el-input
-                        v-show="
-                            place == 'prod' ||
-                                place == 'cat2' ||
-                                place == 'cat3'
-                        "
-                        placeholder="Buscar productos"
-                        size="medium"
-                        v-model="input_item"
-                        @input="searchItems"
-                        @keyup.native="keyupTabCustomer"
-                        @keyup.enter.native="keyupEnterAddItem"
-                        class="m-bottom"
-                        ref="ref_search_items"
-                    >
-                        <el-button
-                            slot="append"
-                            icon="el-icon-plus"
-                            @click.prevent="showDialogNewItem = true"
-                        ></el-button>
+                    <el-input v-show="
+                        place == 'prod' ||
+                        place == 'cat2' ||
+                        place == 'cat3'
+                    " placeholder="Buscar productos" size="medium" v-model="input_item" @input="searchItems"
+                        @keyup.native="keyupTabCustomer" @keyup.enter.native="keyupEnterAddItem" class="m-bottom"
+                        ref="ref_search_items">
+                        <el-button slot="append" icon="el-icon-plus" @click.prevent="showDialogNewItem = true">
+                        </el-button>
                     </el-input>
                 </template>
 
                 <template v-else>
-                    <el-input
-                        v-show="
-                            place == 'prod' ||
-                                place == 'cat2' ||
-                                place == 'cat3'
-                        "
-                        placeholder="Buscar productos"
-                        size="medium"
-                        v-model="input_item"
-                        @change="searchItemsBarcode"
-                        @keyup.native="keyupTabCustomer"
-                        ref="ref_search_items"
-                        class="m-bottom"
-                    >
-                        <el-button
-                            slot="append"
-                            icon="el-icon-plus"
-                            @click.prevent="showDialogNewItem = true"
-                        ></el-button>
+                    <el-input v-show="
+                        place == 'prod' ||
+                        place == 'cat2' ||
+                        place == 'cat3'
+                    " placeholder="Buscar productos" size="medium" v-model="input_item" @change="searchItemsBarcode"
+                        @keyup.native="keyupTabCustomer" ref="ref_search_items" class="m-bottom">
+                        <el-button slot="append" icon="el-icon-plus" @click.prevent="showDialogNewItem = true">
+                        </el-button>
                     </el-input>
                 </template>
 
                 <div v-if="place == 'cat2'" class="container testimonial-group">
                     <div class="row text-center flex-nowrap">
-                        <div
-                            v-for="(item, index) in categories"
-                            @click="filterCategorie(item.id, true)"
-                            :style="{ backgroundColor: item.color }"
-                            :key="index"
-                            class="col-sm-3 pointer"
-                        >
+                        <div v-for="(item, index) in categories" @click="filterCategorie(item.id, true)"
+                            :style="{ backgroundColor: item.color }" :key="index" class="col-sm-3 pointer">
                             {{ item.name }}
                         </div>
                     </div>
@@ -174,11 +135,8 @@
                     <template v-for="(item, index) in categories">
                         <div class="col-md-2" :key="index">
                             <div @click="filterCategorie(item.id)" class="card">
-                                <div
-                                    :style="{ backgroundColor: item.color }"
-                                    class="card-body pointer"
-                                    style="font-weight: bold;color: white;font-size: 18px;"
-                                >
+                                <div :style="{ backgroundColor: item.color }" class="card-content pointer"
+                                    style="font-weight: bold;color: white;font-size: 18px;">
                                     {{ item.name }}
                                 </div>
                             </div>
@@ -189,33 +147,17 @@
                 <div v-if="place == 'prod' || place == 'cat2'" class="row">
                     <template v-for="(item, index) in items">
                         <div v-bind:style="classObjectCol" :key="index">
-                            <section class="card ">
-                                <div
-                                    class="card-body pointer px-2 pt-2"
-                                    @click="clickAddItem(item, index)"
-                                >
-                                    <p
-                                        class="font-weight-semibold mb-0"
-                                        v-if="item.description.length > 50"
-                                        data-toggle="tooltip"
-                                        data-placement="top"
-                                        :title="item.description"
-                                    >
+                            <section class="card">
+                                <div class="card-content pointer px-2 pt-2" @click="clickAddItem(item, index)">
+                                    <p class="font-weight-semibold mb-0" v-if="item.description.length > 50"
+                                        data-toggle="tooltip" data-placement="top" :title="item.description">
                                         {{ item.description.substring(0, 50) }}
                                     </p>
-                                    <p
-                                        class="font-weight-semibold mb-0"
-                                        v-if="item.description.length < 50"
-                                    >
+                                    <p class="font-weight-semibold mb-0" v-if="item.description.length < 50">
                                         {{ item.description }}
                                     </p>
-                                    <img
-                                        :src="item.image_url"
-                                        class="img-thumbail img-custom"
-                                    />
-                                    <p
-                                        class="text-muted font-weight-lighter mb-0"
-                                    >
+                                    <img :src="item.image_url" class="img-thumbail img-custom" />
+                                    <p class="text-muted font-weight-lighter mb-0">
                                         <small>{{ item.internal_id }}</small>
                                         <template v-if="item.sets.length > 0">
                                             <br />
@@ -233,26 +175,16 @@
                     </el-popover> -->
                                     </p>
                                 </div>
-                                <div
-                                    class="card-footer pointer text-center bg-primary"
-                                >
+                                <div class="card-footer pointer text-center bg-primary">
                                     <!-- <button type="button" class="btn waves-effect waves-light btn-xs btn-danger m-1__2" @click="clickHistorySales(item.item_id)"><i class="fa fa-list"></i></button>
                   <button type="button" class="btn waves-effect waves-light btn-xs btn-success m-1__2" @click="clickHistoryPurchases(item.item_id)"><i class="fas fa-cart-plus"></i></button> -->
                                     <template v-if="!item.edit_unit_price">
-                                        <h5
-                                            class="font-weight-semibold text-right text-white"
-                                        >
-                                            <button
-                                                v-if="configuration.options_pos"
-                                                type="button"
-                                                class="btn btn-xs btn-primary-pos"
-                                                @click="
+                                        <h5 class="font-weight-semibold text-right text-white">
+                                            <button v-if="configuration.options_pos" type="button"
+                                                class="btn btn-xs btn-primary-pos" @click="
                                                     clickOpenInputEditUP(index)
-                                                "
-                                            >
-                                                <span style="font-size:16px;"
-                                                    >&#9998;</span
-                                                >
+                                                ">
+                                                <span style="font-size:16px;">&#9998;</span>
                                             </button>
                                             ({{ item.unit_type_id }})
                                             {{ item.currency_type_symbol }}
@@ -260,40 +192,24 @@
                                         </h5>
                                     </template>
                                     <template v-else>
-                                        <el-input
-                                            min="0"
-                                            v-model="item.edit_sale_unit_price"
-                                            class="mt-3 mb-3"
-                                            size="mini"
-                                        >
-                                            <el-button
-                                                slot="append"
-                                                icon="el-icon-check"
-                                                type="primary"
-                                                @click="
-                                                    clickEditUnitPriceItem(
-                                                        index
-                                                    )
-                                                "
-                                            ></el-button>
-                                            <el-button
-                                                slot="append"
-                                                icon="el-icon-close"
-                                                type="danger"
-                                                @click="
-                                                    clickCancelUnitPriceItem(
-                                                        index
-                                                    )
-                                                "
-                                            ></el-button>
+                                        <el-input min="0" v-model="item.edit_sale_unit_price" class="mt-3 mb-3"
+                                            size="mini">
+                                            <el-button slot="append" icon="el-icon-check" type="primary" @click="
+                                                clickEditUnitPriceItem(
+                                                    index
+                                                )
+                                            "></el-button>
+                                            <el-button slot="append" icon="el-icon-close" type="danger" @click="
+                                                clickCancelUnitPriceItem(
+                                                    index
+                                                )
+                                            "></el-button>
                                         </el-input>
                                     </template>
                                 </div>
-                                <div
-                                    v-if="configuration.options_pos"
+                                <div v-if="configuration.options_pos"
                                     class=" card-footer  bg-primary btn-group flex-wrap"
-                                    style="width:100% !important; padding:0 !important; "
-                                >
+                                    style="width:100% !important; padding:0 !important; ">
                                     <!-- <el-popover v-if="item.warehouses" placement="right" width="280"  trigger="hover">
                     <el-table  :data="item.warehouses">
                       <el-table-column width="150" property="warehouse_description" label="Ubicación"></el-table-column>
@@ -326,168 +242,101 @@
 
                                     <el-row style="width:100%">
                                         <el-col :span="6">
-                                            <el-tooltip
-                                                class="item"
-                                                effect="dark"
-                                                content="Visualizar stock"
-                                                placement="bottom-end"
-                                            >
-                                                <button
-                                                    style="width:100%"
-                                                    type="button"
-                                                    class="btn btn-xs btn-primary-pos"
-                                                    @click="
+                                            <el-tooltip class="item" effect="dark" content="Visualizar stock"
+                                                placement="bottom-end">
+                                                <button style="width:100%" type="button"
+                                                    class="btn btn-xs btn-primary-pos" @click="
                                                         clickWarehouseDetail(
                                                             item
                                                         )
-                                                    "
-                                                >
+                                                    ">
                                                     <i class="fa fa-search"></i>
                                                 </button>
                                             </el-tooltip>
                                         </el-col>
                                         <el-col :span="6">
-                                            <el-tooltip
-                                                class="item"
-                                                effect="dark"
+                                            <el-tooltip class="item" effect="dark"
                                                 content="Visualizar historial de ventas del producto (precio venta) y cliente"
-                                                placement="bottom-end"
-                                            >
-                                                <button
-                                                    type="button"
-                                                    style="width:100%;"
-                                                    class="btn btn-xs btn-primary-pos"
-                                                    @click="
+                                                placement="bottom-end">
+                                                <button type="button" style="width:100%;"
+                                                    class="btn btn-xs btn-primary-pos" @click="
                                                         clickHistorySales(
                                                             item.item_id
                                                         )
-                                                    "
-                                                >
+                                                    ">
                                                     <i class="fa fa-list"></i>
                                                 </button>
                                             </el-tooltip>
                                         </el-col>
                                         <el-col :span="6">
-                                            <el-tooltip
-                                                class="item"
-                                                effect="dark"
+                                            <el-tooltip class="item" effect="dark"
                                                 content="Visualizar historial de compras del producto (precio compra)"
-                                                placement="bottom-end"
-                                            >
-                                                <button
-                                                    type="button"
-                                                    style="width:100%"
-                                                    class="btn btn-xs btn-primary-pos"
-                                                    @click="
+                                                placement="bottom-end">
+                                                <button type="button" style="width:100%"
+                                                    class="btn btn-xs btn-primary-pos" @click="
                                                         clickHistoryPurchases(
                                                             item.item_id
                                                         )
-                                                    "
-                                                >
-                                                    <i
-                                                        class="fas fa-cart-plus"
-                                                    ></i>
+                                                    ">
+                                                    <i class="fas fa-cart-plus"></i>
                                                 </button>
                                             </el-tooltip>
                                         </el-col>
                                         <el-col :span="6">
-                                            <el-tooltip
-                                                class="item"
-                                                effect="dark"
-                                                content="Visualizar precios disponibles"
-                                                placement="bottom-end"
-                                            >
-                                                <el-popover
-                                                    placement="top"
-                                                    title="Precios"
-                                                    width="240"
-                                                    trigger="click"
-                                                >
-                                                    <el-table
-                                                        v-if="item.unit_type"
-                                                        :data="item.unit_type"
-                                                    >
-                                                        <el-table-column
-                                                            width="90"
-                                                            label="Precio"
-                                                        >
-                                                            <template
-                                                                slot-scope="{
+                                            <el-tooltip class="item" effect="dark"
+                                                content="Visualizar precios disponibles" placement="bottom-end">
+                                                <el-popover placement="top" title="Precios" width="240" trigger="click">
+                                                    <el-table v-if="item.unit_type" :data="item.unit_type">
+                                                        <el-table-column width="90" label="Precio">
+                                                            <template slot-scope="{
                                                                     row
-                                                                }"
-                                                            >
-                                                                <span
-                                                                    v-if="
-                                                                        row.price_default ==
-                                                                            1
-                                                                    "
-                                                                >
+                                                                }">
+                                                                <span v-if="
+                                                                    row.price_default ==
+                                                                    1
+                                                                ">
                                                                     {{
-                                                                        row.price1
+                                                                            row.price1
                                                                     }}
                                                                 </span>
-                                                                <span
-                                                                    v-else-if="
-                                                                        row.price_default ==
-                                                                            2
-                                                                    "
-                                                                >
+                                                                <span v-else-if="
+                                                                    row.price_default ==
+                                                                    2
+                                                                ">
                                                                     {{
-                                                                        row.price2
+                                                                            row.price2
                                                                     }}
                                                                 </span>
-                                                                <span
-                                                                    v-else-if="
-                                                                        row.price_default ==
-                                                                            3
-                                                                    "
-                                                                >
+                                                                <span v-else-if="
+                                                                    row.price_default ==
+                                                                    3
+                                                                ">
                                                                     {{
-                                                                        row.price3
+                                                                            row.price3
                                                                     }}
                                                                 </span>
                                                             </template>
                                                         </el-table-column>
-                                                        <el-table-column
-                                                            width="80"
-                                                            label="Unidad"
-                                                            property="unit_type_id"
-                                                        ></el-table-column>
-                                                        <el-table-column
-                                                            width="80"
-                                                            label=""
-                                                        >
-                                                            <template
-                                                                slot-scope="{
+                                                        <el-table-column width="80" label="Unidad"
+                                                            property="unit_type_id"></el-table-column>
+                                                        <el-table-column width="80" label="">
+                                                            <template slot-scope="{
                                                                     row
-                                                                }"
-                                                            >
-                                                                <button
-                                                                    @click="
-                                                                        setPriceItem(
-                                                                            row,
-                                                                            index
-                                                                        )
-                                                                    "
-                                                                    type="button"
-                                                                    class="btn btn-custom btn-xs"
-                                                                >
-                                                                    <i
-                                                                        class="fas fa-check"
-                                                                    ></i>
+                                                                }">
+                                                                <button @click="
+                                                                    setPriceItem(
+                                                                        row,
+                                                                        index
+                                                                    )
+                                                                " type="button" class="btn btn-custom btn-xs">
+                                                                    <i class="fas fa-check"></i>
                                                                 </button>
                                                             </template>
                                                         </el-table-column>
                                                     </el-table>
-                                                    <button
-                                                        slot="reference"
-                                                        type="button"
-                                                        style="width:100%"
-                                                        class="btn btn-xs btn-primary-pos"
-                                                    >
-                                                        <i
-                                                            class="fa fa-money-bill-alt"
-                                                        ></i>
+                                                    <button slot="reference" type="button" style="width:100%"
+                                                        class="btn btn-xs btn-primary-pos">
+                                                        <i class="fa fa-money-bill-alt"></i>
                                                     </button>
                                                 </el-popover>
                                             </el-tooltip>
@@ -499,78 +348,42 @@
                     </template>
                 </div>
 
-                <table-items
-                    ref="table_items"
-                    @clickAddItem="clickAddItem"
-                    @clickWarehouseDetail="clickWarehouseDetail"
-                    @clickHistorySales="clickHistorySales"
-                    @clickHistoryPurchases="clickHistoryPurchases"
-                    v-if="place == 'cat3'"
-                    :records="items"
-                    :typeUser="typeUser"
-                    :visibleTagsCustomer="focusClienteSelect"
-                ></table-items>
+                <table-items ref="table_items" @clickAddItem="clickAddItem" @clickWarehouseDetail="clickWarehouseDetail"
+                    @clickHistorySales="clickHistorySales" @clickHistoryPurchases="clickHistoryPurchases"
+                    v-if="place == 'cat3'" :records="items" :typeUser="typeUser"
+                    :visibleTagsCustomer="focusClienteSelect"></table-items>
 
                 <div v-if="place == 'prod' || place == 'cat2'" class="row">
                     <div class="col-md-12 text-center">
-                        <el-pagination
-                            @current-change="getRecords"
-                            layout="total, prev, pager, next"
-                            :total="pagination.total"
-                            :current-page.sync="pagination.current_page"
-                            :page-size="pagination.per_page"
-                        >
+                        <el-pagination @current-change="getRecords" layout="total, prev, pager, next"
+                            :total="pagination.total" :current-page.sync="pagination.current_page"
+                            :page-size="pagination.per_page">
                         </el-pagination>
                     </div>
                 </div>
             </div>
-            <div
-                class="col-lg-4 col-md-6 bg-white m-0 p-0"
-                style="height: calc(100vh - 110px)"
-            >
-                <div class="h-75 bg-light" style="overflow-y: auto">
+            <div class="card col-lg-4 col-md-6 bg-white mt-2 p-0" style="height: calc(100vh - 110px)">
+                <div class="card-content h-75 bg-light" style="overflow-y: auto">
                     <div class="row py-3 border-bottom m-0 p-0">
                         <div class="col-8">
-                            <el-select
-                                ref="select_person"
-                                v-model="form.customer_id"
-                                filterable
-                                placeholder="Cliente"
-                                @change="changeCustomer"
-                                @keyup.native="keyupCustomer"
-                                @keyup.enter.native="keyupEnterCustomer"
-                                @focus="focusClienteSelect = true"
-                                @blur="focusClienteSelect = false"
-                            >
-                                <el-option
-                                    v-for="option in all_customers"
-                                    :key="option.id"
-                                    :label="option.description"
-                                    :value="option.id"
-                                ></el-option>
+                            <el-select ref="select_person" v-model="form.customer_id" filterable placeholder="Cliente"
+                                @change="changeCustomer" @keyup.native="keyupCustomer"
+                                @keyup.enter.native="keyupEnterCustomer" @focus="focusClienteSelect = true"
+                                @blur="focusClienteSelect = false">
+                                <el-option v-for="option in all_customers" :key="option.id" :label="option.description"
+                                    :value="option.id"></el-option>
                             </el-select>
                         </div>
                         <div class="col-4">
                             <div class="btn-group d-flex" role="group">
-                                <a
-                                    class="btn btn-sm btn-default w-100"
-                                    @click.prevent="showDialogNewPerson = true"
-                                >
+                                <a class="btn btn-sm btn-default w-100" @click.prevent="showDialogNewPerson = true">
                                     <i class="fas fa-plus fa-wf"></i>
                                 </a>
-                                <a
-                                    class="btn btn-sm btn-default w-100"
-                                    @click="clickDeleteCustomer"
-                                >
+                                <a class="btn btn-sm btn-default w-100" @click="clickDeleteCustomer">
                                     <i class="fas fa-trash fa-wf"></i>
                                 </a>
-                                <a
-                                    class="btn btn-sm btn-default w-100"
-                                    @click="selectCurrencyType"
-                                >
-                                    <template
-                                        v-if="form.currency_type_id == 'PEN'"
-                                    >
+                                <a class="btn btn-sm btn-default w-100" @click="selectCurrencyType">
+                                    <template v-if="form.currency_type_id == 'PEN'">
                                         <strong>S/</strong>
                                     </template>
                                     <template v-else>
@@ -587,19 +400,15 @@
                                 <template v-for="(item, index) in form.items">
                                     <tr :key="index">
                                         <td width="20%">
-                                            <el-input
-                                                v-model="item.item.aux_quantity"
-                                                @input="
-                                                    clickAddItem(
-                                                        item,
-                                                        index,
-                                                        true
-                                                    )
-                                                "
-                                                @keyup.enter.native="
-                                                    keyupEnterQuantity
-                                                "
-                                            ></el-input>
+                                            <el-input v-model="item.item.aux_quantity" @input="
+                                                clickAddItem(
+                                                    item,
+                                                    index,
+                                                    true
+                                                )
+                                            " @keyup.enter.native="
+                                                keyupEnterQuantity
+                                            "></el-input>
                                             <!-- <el-input
                                                 v-model="item.item.aux_quantity"
                                                 :readonly="
@@ -630,7 +439,7 @@
                                         </td>
                                         <td>
                                             <small>{{
-                                                item.unit_type_id
+                                                    item.unit_type_id
                                             }}</small>
                                         </td>
                                         <!-- <td>
@@ -646,44 +455,30 @@
                       </p>
                     </td> -->
                                         <td>
-                                            <p
-                                                class="font-weight-semibold m-0 text-center"
-                                            >
+                                            <p class="font-weight-semibold m-0 text-center">
                                                 {{ currency_type.symbol }}
                                             </p>
                                         </td>
                                         <td width="30%">
-                                            <p
-                                                class="font-weight-semibold m-0 text-center"
-                                            >
+                                            <p class="font-weight-semibold m-0 text-center">
                                                 <!-- {{currency_type.symbol}} {{item.total}} -->
-                                                <el-input
-                                                    v-model="item.total"
-                                                    @input="
-                                                        calculateQuantity(index)
-                                                    "
-                                                    @blur="
-                                                        blurCalculateQuantity(
-                                                            index
-                                                        )
-                                                    "
-                                                    :readonly="
-                                                        !item.item
-                                                            .calculate_quantity
-                                                    "
-                                                >
+                                                <el-input v-model="item.total" @input="
+                                                    calculateQuantity(index)
+                                                " @blur="
+                                                    blurCalculateQuantity(
+                                                        index
+                                                    )
+                                                " :readonly="
+                                                    !item.item
+                                                        .calculate_quantity
+                                                ">
                                                     <!-- <template slot="prepend" v-if="currency_type.symbol">{{ currency_type.symbol }}</template> -->
                                                 </el-input>
                                             </p>
                                         </td>
                                         <td class="text-right">
-                                            <a
-                                                class="btn btn-sm btn-default"
-                                                @click="clickDeleteItem(index)"
-                                            >
-                                                <i
-                                                    class="fas fa-trash fa-wf"
-                                                ></i>
+                                            <a class="btn btn-sm btn-default" @click="clickDeleteItem(index)">
+                                                <i class="fas fa-trash fa-wf"></i>
                                             </a>
                                         </td>
                                     </tr>
@@ -693,18 +488,10 @@
                     </div>
                 </div>
                 <div class="h-25 bg-light" style="overflow-y: auto">
-                    <div
-                        class="row border-top bg-light m-0 p-0 h-50 d-flex align-items-right pr-5 pt-2"
-                    >
-                        <div
-                            class="col-md-12"
-                            style="display: flex; flex-direction: column; align-items: flex-end;"
-                        >
+                    <div class="row border-top bg-light m-0 p-0 h-50 d-flex align-items-right pr-5 pt-2">
+                        <div class="col-md-12" style="display: flex; flex-direction: column; align-items: flex-end;">
                             <table>
-                                <tr
-                                    v-if="form.total_exonerated > 0"
-                                    class="font-weight-semibold  m-0"
-                                >
+                                <tr v-if="form.total_exonerated > 0" class="font-weight-semibold  m-0">
                                     <td class="font-weight-semibold">
                                         OP.EXONERADAS
                                     </td>
@@ -714,10 +501,7 @@
                                         {{ form.total_exonerated }}
                                     </td>
                                 </tr>
-                                <tr
-                                    v-if="form.total_free > 0"
-                                    class="font-weight-semibold  m-0"
-                                >
+                                <tr v-if="form.total_free > 0" class="font-weight-semibold  m-0">
                                     <td class="font-weight-semibold">
                                         OP.GRATUITAS
                                     </td>
@@ -727,10 +511,7 @@
                                         {{ form.total_free }}
                                     </td>
                                 </tr>
-                                <tr
-                                    v-if="form.total_unaffected > 0"
-                                    class="font-weight-semibold  m-0"
-                                >
+                                <tr v-if="form.total_unaffected > 0" class="font-weight-semibold  m-0">
                                     <td class="font-weight-semibold">
                                         OP.INAFECTAS
                                     </td>
@@ -740,10 +521,7 @@
                                         {{ form.total_unaffected }}
                                     </td>
                                 </tr>
-                                <tr
-                                    v-if="form.total_taxed > 0"
-                                    class="font-weight-semibold  m-0"
-                                >
+                                <tr v-if="form.total_taxed > 0" class="font-weight-semibold  m-0">
                                     <td class="font-weight-semibold">
                                         OP.GRAVADA
                                     </td>
@@ -753,10 +531,7 @@
                                         {{ form.total_taxed }}
                                     </td>
                                 </tr>
-                                <tr
-                                    v-if="form.total_igv > 0"
-                                    class="font-weight-semibold  m-0"
-                                >
+                                <tr v-if="form.total_igv > 0" class="font-weight-semibold  m-0">
                                     <td class="font-weight-semibold">IGV</td>
                                     <td class="font-weight-semibold">:</td>
                                     <td class="text-right text-blue">
@@ -764,10 +539,7 @@
                                         {{ form.total_igv }}
                                     </td>
                                 </tr>
-                                <tr
-                                    v-if="form.total_plastic_bag_taxes > 0"
-                                    class="font-weight-semibold  m-0"
-                                >
+                                <tr v-if="form.total_plastic_bag_taxes > 0" class="font-weight-semibold  m-0">
                                     <td class="font-weight-semibold">ICBPER</td>
                                     <td class="font-weight-semibold">:</td>
                                     <td class="text-right text-blue">
@@ -813,19 +585,16 @@
               </h4>
             </div> -->
                     </div>
-                    <div
-                        class="row text-white m-0 p-0 h-50 d-flex align-items-center"
-                        @click="clickPayment"
+                    <div class="row text-white m-0 p-0 h-50 d-flex align-items-center" @click="clickPayment"
                         v-bind:class="[
                             form.total > 0 ? 'bg-info pointer' : 'bg-dark'
-                        ]"
-                    >
+                        ]">
                         <div class="col-6 text-center">
                             <i class="fas fa-chevron-circle-right fa fw h5"></i>
                             <span class="font-weight-semibold h5">PAGO</span>
                         </div>
                         <div class="col-6 text-center">
-                            <h5 class="font-weight-semibold h5">
+                            <h5 class="title is-3 has-text-white mt-4">
                                 {{ currency_type.symbol }} {{ form.total }}
                             </h5>
                         </div>
@@ -833,49 +602,25 @@
                 </div>
             </div>
 
-            <person-form
-                :showDialog.sync="showDialogNewPerson"
-                type="customers"
-                :input_person="input_person"
-                :external="true"
-                :document_type_id="form.document_type_id"
-            ></person-form>
+            <person-form :showDialog.sync="showDialogNewPerson" type="customers" :input_person="input_person"
+                :external="true" :document_type_id="form.document_type_id"></person-form>
 
-            <item-form
-                :showDialog.sync="showDialogNewItem"
-                :external="true"
-            ></item-form>
+            <item-form :showDialog.sync="showDialogNewItem" :external="true"></item-form>
         </div>
         <template v-else>
-            <payment-form
-                :is_payment.sync="is_payment"
-                :form="form"
-                :currency-type-id-active="form.currency_type_id"
-                :currency-type-active="currency_type"
-                :exchange-rate-sale="form.exchange_rate_sale"
-                :customer="customer"
-                :soapCompany="soapCompany"
-                :businessTurns="businessTurns"
-            ></payment-form>
+            <payment-form :is_payment.sync="is_payment" :form="form" :currency-type-id-active="form.currency_type_id"
+                :currency-type-active="currency_type" :exchange-rate-sale="form.exchange_rate_sale" :customer="customer"
+                :soapCompany="soapCompany" :businessTurns="businessTurns"></payment-form>
         </template>
 
-        <history-sales-form
-            :showDialog.sync="showDialogHistorySales"
-            :item_id="history_item_id"
-            :customer_id="form.customer_id"
-        ></history-sales-form>
+        <history-sales-form :showDialog.sync="showDialogHistorySales" :item_id="history_item_id"
+            :customer_id="form.customer_id"></history-sales-form>
 
-        <history-purchases-form
-            :showDialog.sync="showDialogHistoryPurchases"
-            :item_id="history_item_id"
-        ></history-purchases-form>
+        <history-purchases-form :showDialog.sync="showDialogHistoryPurchases" :item_id="history_item_id">
+        </history-purchases-form>
 
-        <warehouses-detail
-            :showDialog.sync="showWarehousesDetail"
-            :warehouses="warehousesDetail"
-            :unit_type="unittypeDetail"
-            :item_unit_types="[]"
-        >
+        <warehouses-detail :showDialog.sync="showWarehousesDetail" :warehouses="warehousesDetail"
+            :unit_type="unittypeDetail" :item_unit_types="[]">
         </warehouses-detail>
     </div>
 </template>
@@ -886,12 +631,13 @@
 }
 
 /* The heart of the matter */
-.testimonial-group > .row {
+.testimonial-group>.row {
     overflow-x: auto;
     white-space: nowrap;
     overflow-y: hidden;
 }
-.testimonial-group > .row > .col-sm-3 {
+
+.testimonial-group>.row>.col-sm-3 {
     display: inline-block;
     float: none;
 }
@@ -914,6 +660,7 @@
 .ex1 {
     overflow-x: scroll;
 }
+
 .cat_c {
     width: 100px;
     margin: 1%;
@@ -922,18 +669,22 @@
     color: white;
     min-height: 90px;
 }
+
 .cat_c p {
     color: white;
 }
+
 .c-width {
     width: 80px !important;
     padding: 0 !important;
     margin-right: 0 !important;
 }
+
 .el-select-dropdown {
     max-width: 80% !important;
     margin-right: 1% !important;
 }
+
 .el-input-group__append {
     padding: 0 10px !important;
 }
@@ -1109,8 +860,7 @@ export default {
             this.loading = true;
             return this.$http
                 .get(
-                    `/${this.resource}/items?${this.getQueryParameters()}&cat=${
-                        this.category_selected
+                    `/${this.resource}/items?${this.getQueryParameters()}&cat=${this.category_selected
                     }`
                 )
                 .then(response => {
@@ -1278,7 +1028,7 @@ export default {
             if (this.form.items[index].item.calculate_quantity) {
                 let quantity = _.round(
                     parseFloat(this.form.items[index].total) /
-                        parseFloat(this.form.items[index].unit_price),
+                    parseFloat(this.form.items[index].unit_price),
                     4
                 );
 
@@ -1469,7 +1219,7 @@ export default {
                 discounts: [],
                 attributes: [],
                 has_igv: false,
-                has_plastic_bag_taxes:false,
+                has_plastic_bag_taxes: false,
             };
         },
         async clickPayment() {
@@ -1799,9 +1549,8 @@ export default {
         async searchItems() {
             if (this.input_item.length > 0) {
                 this.loading = true;
-                let parameters = `input_item=${this.input_item}&cat=${
-                    this.category_selected
-                }`;
+                let parameters = `input_item=${this.input_item}&cat=${this.category_selected
+                    }`;
 
                 await this.$http
                     .get(`/${this.resource}/search_items_cat?${parameters}`)

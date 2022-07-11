@@ -7,7 +7,7 @@
                         <div class="form-group" :class="{'has-danger': errors.fixed_asset_item_id}">
                             <label class="control-label">
                                 Producto/Servicio
-                                <a href="#" @click.prevent="showDialogNewItem = true">[+ Nuevo]</a>
+                                <a href="#" @click.prevent="showDialogNewItem = true">Nuevo</a>
                             </label>
                             <el-select v-model="form.fixed_asset_item_id" @change="changeItem" filterable>
                                 <el-option v-for="option in items" :key="option.id" :value="option.id" :label="option.full_description"></el-option>

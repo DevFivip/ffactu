@@ -33,7 +33,7 @@
                                     <thead>
                                         <tr width="100%">
                                             <th width="55%" v-if="form.suppliers.length>0" class="pb-2">Proveedor
-                                                <a href="#" class="text-center font-weight-bold text-info" @click.prevent="showDialogNewPerson = true">[+ Nuevo]</a>
+                                                <a href="#" class="text-center font-weight-bold text-info" @click.prevent="showDialogNewPerson = true">Nuevo</a>
                                             </th>
                                             <th width="30%" v-if="form.suppliers.length>0" class="pb-2">Correo electrónico</th>
                                             <th width="15%"><a href="#" @click.prevent="clickAddSupplier" class="text-center font-weight-bold text-info">[+ Agregar]</a></th>

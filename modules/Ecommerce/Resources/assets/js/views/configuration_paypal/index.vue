@@ -1,15 +1,16 @@
 <template>
   <div class="col-lg-6 col-md-12 0">
     <div class="card">
-      <div class="card-header bg-info">
+      <!-- <div class="card-header bg-info">
         <h3 class="my-0">Paypal</h3>
-      </div>
-      <div class="card-body">
+      </div> -->
+      <div class="card-content">
+        <h3 class="title is-3">Paypal</h3>
         <form autocomplete="off" @submit.prevent="submit">
           <div class="form-body">
             <div class="row">
               <div class="col-md-12">
-                <div class="form-group" :class="{'has-danger': errors.script_paypal}">
+                <div class="form-group" :class="{ 'has-danger': errors.script_paypal }">
                   <label class="control-label">
                     Script Paypal
                     <el-tooltip placement="right-start">
@@ -22,11 +23,8 @@
                   </label>
                   <br />
                   <el-input type="textarea" :rows="4" v-model="form.script_paypal"></el-input>
-                  <small
-                    class="form-control-feedback"
-                    v-if="errors.script_paypal"
-                    v-text="errors.script_paypal[0]"
-                  ></small>
+                  <small class="form-control-feedback" v-if="errors.script_paypal"
+                    v-text="errors.script_paypal[0]"></small>
                 </div>
               </div>
             </div>

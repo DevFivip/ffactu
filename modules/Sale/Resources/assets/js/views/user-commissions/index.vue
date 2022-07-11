@@ -1,6 +1,22 @@
 <template>
     <div>
-        <div class="page-header pr-0">
+
+
+         
+        <section class="hero is-primary is-rounded">
+            <div class="hero-body">
+                <p class="title">
+                    Comisiones por Vendedor
+                </p>
+
+                 <div class="buttons">
+                    <a class="button" @click.prevent="clickCreate()">Nuevo</a>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- <div class="page-header pr-0">
             <h2><a href="/dashboard"><i class="fas fa-tachometer-alt"></i></a></h2>
             <ol class="breadcrumbs">
                 <li class="active"><span>Comisiones</span></li>
@@ -8,12 +24,12 @@
             <div class="right-wrapper pull-right">
                 <button type="button" class="btn btn-custom btn-sm  mt-2 mr-2" @click.prevent="clickCreate()"><i class="fa fa-plus-circle"></i> Nuevo</button>
             </div>
-        </div>
+        </div> -->
         <div class="card mb-0">
-            <div class="card-header bg-info">
+            <!-- <div class="card-header bg-info">
                 <h3 class="my-0">Comisiones por vendedor</h3>
-            </div>
-            <div class="card-body">
+            </div> -->
+            <div class="card-content">
                 <data-table :resource="resource">
                     <tr slot="heading" width="100%">
                         <th>#</th>

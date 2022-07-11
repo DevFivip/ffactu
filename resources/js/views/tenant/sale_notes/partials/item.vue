@@ -7,7 +7,7 @@
                         <div class="form-group" id="custom-select" :class="{'has-danger': errors.item_id}">
                             <label class="control-label">
                                 Producto/Servicio
-                                <a href="#" v-if="typeUser != 'seller'" @click.prevent="showDialogNewItem = true">[+ Nuevo]</a>
+                                <a href="#" v-if="typeUser != 'seller'" @click.prevent="showDialogNewItem = true">Nuevo</a>
                             </label>
 
                             <el-input id="custom-input">

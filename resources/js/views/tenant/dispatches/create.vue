@@ -43,7 +43,7 @@
                             <div class="form-group" :class="{'has-danger': errors.customer_id}">
                                 <label class="control-label">
                                     Cliente<span class="text-danger"> *</span>
-                                    <a href="#" @click.prevent="showDialogNewPerson = true">[+ Nuevo]</a>
+                                    <a href="#" @click.prevent="showDialogNewPerson = true">Nuevo</a>
                                 </label>
                                 <el-select v-model="form.customer_id" filterable>
                                     <el-option v-for="option in customers" :key="option.id" :value="option.id" :label="option.description"></el-option>

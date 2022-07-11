@@ -255,24 +255,15 @@
             <div class="column">
                 <div class="card has-background-info has-text-white-ter" v-show="!loaders.balance">
 
-                    <div class="card-content">
+                    <div class="card-content has-text-white-ter">
                         <p class="title is-4 has-text-white-ter">
                             Balance Ventas
                         </p>
-
-                        <p><span class="custom-badge">T. Pagos Ventas - T. Pagos Compras/Gastos</span></p>
-                        <p>Total pagos comprobantes:<span class="custom-badge pull-right">S/ {{
-                                balance.totals.total_payment_document
-                        }}</span></p>
-                        <p>Total pagos notas de venta:<span class="custom-badge pull-right">S/ {{
-                                balance.totals.total_payment_sale_note
-                        }}</span></p>
-                        <p>Total pagos compras:<span class="custom-badge pull-right">- S/ {{
-                                balance.totals.total_payment_purchase
-                        }}</span></p>
-                        <p>Total pagos gastos:<span class="custom-badge pull-right">- S/ {{
-                                balance.totals.total_payment_expense
-                        }}</span></p>
+                        <p><span class="has-text-white-ter">T. Pagos Ventas - T. Pagos Compras/Gastos</span></p>
+                        <p class="has-text-white-ter">Total pagos comprobantes:<span class=""> S/ {{balance.totals.total_payment_document}}</span></p>
+                        <p class="has-text-white-ter">Total pagos notas de venta:<span class=""> S/ {{ balance.totals.total_payment_sale_note}}</span></p>
+                        <!-- <p class="has-text-white-ter">Total pagos compras:<span class="">- S/ {{ balance.totals.total_payment_purchase}}</span></p>
+                        <p class="has-text-white-ter">Total pagos gastos:<span class="">- S/ {{ balance.totals.total_payment_expense}}</span></p> -->
                     </div>
                 </div>
                 <div class="card has-background-danger has-text-white-ter" v-show="!loaders.balance">
@@ -281,25 +272,11 @@
                         <p class="title is-4 has-text-white-ter">
                             Balance Compras - Gastos
                         </p>
-
-                        <p><span class="custom-badge">T. Pagos Ventas - T. Pagos
-                                Compras/Gastos</span></p>
-                        <p>Total pagos comprobantes:<span class="custom-badge pull-right">S/ {{
-                                balance.totals.total_payment_document
-                        }}</span>
-                        </p>
-                        <p>Total pagos notas de venta:<span class="custom-badge pull-right">S/ {{
-                                balance.totals.total_payment_sale_note
-                        }}</span>
-                        </p>
-                        <p>Total pagos compras:<span class="custom-badge pull-right">- S/ {{
-                                balance.totals.total_payment_purchase
-                        }}</span>
-                        </p>
-                        <p>Total pagos gastos:<span class="custom-badge pull-right">- S/ {{
-                                balance.totals.total_payment_expense
-                        }}</span>
-                        </p>
+                        <p class="has-text-white-ter"><span class="">T. Pagos Ventas - T. Pagos Compras/Gastos</span></p>
+                        <!-- <p class="has-text-white-ter">Total pagos comprobantes:<span class="">S/ {{balance.totals.total_payment_document}}</span></p>
+                        <p class="has-text-white-ter">Total pagos notas de venta:<span class="">S/ {{balance.totals.total_payment_sale_note}}</span></p> -->
+                        <p class="has-text-white-ter">Total pagos compras:<span class="">- S/ {{balance.totals.total_payment_purchase}}</span></p>
+                        <p class="has-text-white-ter">Total pagos gastos:<span class="">- S/ {{balance.totals.total_payment_expense}}</span></p>
                     </div>
                 </div>
             </div>
@@ -476,7 +453,7 @@
     min-height: inherit;
 }
 
-.custom-badge {
+. {
     font-size: 15px;
     font-weight: bold;
 }

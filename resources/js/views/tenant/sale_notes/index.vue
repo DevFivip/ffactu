@@ -1,6 +1,18 @@
 <template>
     <div>
-        <div class="page-header pr-0">
+        
+        <section class="hero is-primary is-rounded">
+            <div class="hero-body">
+                <p class="title">
+                    Notas de Ventas
+                </p>
+                <div class="buttons">
+                    <a class="button" @click.prevent="clickCreate()" >Nuevo</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- <div class="page-header pr-0">
             <h2><a href="/dashboard"><i class="fas fa-tachometer-alt"></i></a></h2>
             <ol class="breadcrumbs">
                 <li class="active"><span>Notas de Venta</span></li>
@@ -8,12 +20,12 @@
             <div class="right-wrapper pull-right">
                 <a href="#" @click.prevent="clickCreate()" class="btn btn-custom btn-sm  mt-2 mr-2"><i class="fa fa-plus-circle"></i> Nuevo</a>
             </div>
-        </div>
+        </div> -->
         <div class="card mb-0">
             <div class="data-table-visible-columns">
                 <el-dropdown :hide-on-click="false">
                     <el-button type="primary">
-                        Mostrar/Ocultar columnas<i class="el-icon-arrow-down el-icon--right"></i>
+                        Listar columnas<i class="el-icon-arrow-down el-icon--right"></i>
                     </el-button>
                     <el-dropdown-menu slot="dropdown">
                         <el-dropdown-item v-for="(column, index) in columns" :key="index">
@@ -22,7 +34,7 @@
                     </el-dropdown-menu>
                 </el-dropdown>
             </div>
-            <div class="card-body">
+            <div class="card-content">
                 <data-table :resource="resource">
                     <tr slot="heading">
                         <th>#</th>

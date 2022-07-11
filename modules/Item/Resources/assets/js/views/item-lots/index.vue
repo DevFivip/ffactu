@@ -1,6 +1,18 @@
 <template>
     <div>
-        <div class="page-header pr-0">
+
+        <section class="hero is-primary is-rounded">
+            <div class="hero-body">
+                <p class="title">
+                    {{title}}
+                </p>
+                <div class="buttons">
+                    <a class="button is-success" @click.prevent="clickExport()"><i class="fa fa-file-excel"></i>&nbsp;Exportar</a>
+                </div>
+            </div>
+        </section>
+
+      <!-- <div class="page-header pr-0">
             <h2><a href="/dashboard"><i class="fas fa-tachometer-alt"></i></a></h2>
             <ol class="breadcrumbs">
                 <li class="active"><span>{{ title }}</span></li>
@@ -8,13 +20,12 @@
             <div class="right-wrapper pull-right">
                 <button type="button" class="btn btn-success btn-sm  mt-2 mr-2" @click.prevent="clickExport()"><i class="fa fa-file-excel"></i> Exportar</button>
             </div>
-        </div>
+        </div> -->
         <div class="card mb-0">
-            <div class="card-header bg-info">
+            <!-- <div class="card-header bg-info">
                 <h3 class="my-0">Listado de {{ title }}</h3>
-            </div>
-            <div class="card-body">
-             
+            </div> -->
+            <div class="card-content">
                 <div v-loading="loading_submit">
                     <div class="row ">   
                         <div class="col-md-12 col-lg-12 col-xl-12 ">

@@ -97,7 +97,7 @@
             <label class="control-label font-weight-bold text-info">
               Remitente
               <a href="#" @click.prevent="showDialogNewPerson = true"
-                >[+ Nuevo]</a
+                >Nuevo</a
               >
             </label>
             <el-select

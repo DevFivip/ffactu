@@ -67,7 +67,7 @@
               <label class="control-label font-weight-bold text-info">
                 Cliente
                 <a href="#" @click.prevent="showDialogNewPerson = true"
-                  >[+ Nuevo]</a
+                  >Nuevo</a
                 >
               </label>
               <el-select

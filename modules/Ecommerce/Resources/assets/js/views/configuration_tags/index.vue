@@ -2,44 +2,34 @@
  <template>
   <div class="col-lg-6 col-md-12">
     <div class="card">
-      <div class="card-header bg-info">
+      <!-- <div class="card-header bg-info">
         <h3 class="my-0">Tags menú</h3>
-      </div>
+      </div> -->
       <div class="card-body">
+        <h3 class="title is-3">Tag Menú</h3>
         <form autocomplete="off" @submit.prevent="submit">
           <div class="form-body">
             <div class="row">
               <div class="col-md-12">
-                <div class="form-group" :class="{'has-danger': errors.tag_shipping}">
+                <div class="form-group" :class="{ 'has-danger': errors.tag_shipping }">
                   <label class="control-label">Tag Envío</label>
                   <el-input v-model="form.tag_shipping"></el-input>
-                  <small
-                    class="form-control-feedback"
-                    v-if="errors.tag_shipping"
-                    v-text="errors.tag_shipping[0]"
-                  ></small>
+                  <small class="form-control-feedback" v-if="errors.tag_shipping"
+                    v-text="errors.tag_shipping[0]"></small>
                 </div>
               </div>
               <div class="col-md-12">
-                <div class="form-group" :class="{'has-danger': errors.tag_dollar}">
+                <div class="form-group" :class="{ 'has-danger': errors.tag_dollar }">
                   <label class="control-label">Tag moneda</label>
                   <el-input v-model="form.tag_dollar"></el-input>
-                  <small
-                    class="form-control-feedback"
-                    v-if="errors.tag_dollar"
-                    v-text="errors.tag_dollar[0]"
-                  ></small>
+                  <small class="form-control-feedback" v-if="errors.tag_dollar" v-text="errors.tag_dollar[0]"></small>
                 </div>
               </div>
               <div class="col-md-12">
-                <div class="form-group" :class="{'has-danger': errors.tag_support}">
+                <div class="form-group" :class="{ 'has-danger': errors.tag_support }">
                   <label class="control-label">Tag soporte</label>
                   <el-input v-model="form.tag_support"></el-input>
-                  <small
-                    class="form-control-feedback"
-                    v-if="errors.tag_support"
-                    v-text="errors.tag_support[0]"
-                  ></small>
+                  <small class="form-control-feedback" v-if="errors.tag_support" v-text="errors.tag_support[0]"></small>
                 </div>
               </div>
             </div>

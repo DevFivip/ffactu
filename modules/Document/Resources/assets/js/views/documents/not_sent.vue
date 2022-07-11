@@ -1,13 +1,17 @@
 <template>
     <div>
-        <div class="page-header pr-0">
-            <h2><a href="/dashboard"><i class="fas fa-tachometer-alt"></i></a></h2>
-            <ol class="breadcrumbs">
-                <li class="active"><span>Comprobantes pendientes de envío OSE/SUNAT</span> </li>
-            </ol> 
-        </div>
-        <div class="card mb-0" v-loading="loading_submit"> 
-            <div class="card-body ">
+        <section class="hero is-primary is-rounded">
+            <div class="hero-body">
+                <p class="title">
+                    Comprobantes
+                </p>
+                <p class="subtitle">
+                    Comprobantes pendientes de envío OSE/SUNAT
+                </p>
+            </div>
+        </section>
+        <div class="card " v-loading="loading_submit"> 
+            <div class="card-content">
                 <data-table :resource="resource">
                     <tr slot="heading">
                         <th>#</th>

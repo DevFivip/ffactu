@@ -1,11 +1,5 @@
 <template>
     <div>
-
-        <b-breadcrumb separator="has-bullet-separator" size="is-small">
-            <b-breadcrumb-item href="/dashboard">Dashboard</b-breadcrumb-item>
-            <b-breadcrumb-item href="#" active>Comprobantes</b-breadcrumb-item>
-        </b-breadcrumb>
-
         <section class="hero is-primary is-rounded">
             <div class="hero-body">
                 <p class="title">
@@ -92,7 +86,7 @@
 <!-- 
                 <el-dropdown :hide-on-click="false">
                     <el-button type="primary">
-                        Mostrar/Ocultar columnas<i class="el-icon-arrow-down el-icon--right"></i>
+                        Listar columnas<i class="el-icon-arrow-down el-icon--right"></i>
                     </el-button>
                     <el-dropdown-menu slot="dropdown">
                         <el-dropdown-item v-for="(column, index) in columns" :key="index">

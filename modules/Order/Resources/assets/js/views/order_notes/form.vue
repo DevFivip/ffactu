@@ -30,7 +30,7 @@
                                 <div class="form-group" :class="{'has-danger': errors.customer_id}">
                                     <label class="control-label font-weight-bold text-info">
                                         Cliente
-                                        <a href="#" @click.prevent="showDialogNewPerson = true">[+ Nuevo]</a>
+                                        <a href="#" @click.prevent="showDialogNewPerson = true">Nuevo</a>
                                     </label>
                                     <el-select v-model="form.customer_id" filterable remote class="border-left rounded-left border-info" popper-class="el-select-customers"
                                         dusk="customer_id"

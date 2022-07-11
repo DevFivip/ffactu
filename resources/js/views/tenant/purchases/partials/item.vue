@@ -7,7 +7,7 @@
                         <div class="form-group" :class="{'has-danger': errors.item_id}">
                             <label class="control-label">
                                 Producto/Servicio
-                                <a href="#" @click.prevent="showDialogNewItem = true">[+ Nuevo]</a>
+                                <a href="#" @click.prevent="showDialogNewItem = true">Nuevo</a>
                             </label>
                             <el-select v-model="form.item_id" @change="changeItem"
                                 filterable

@@ -1,5 +1,40 @@
 <template>
     <div>
+
+        <section class="hero is-primary is-rounded">
+            <div class="hero-body">
+                <p class="title">
+                    {{titleTopBar}}
+                </p>
+                <div class="buttons" v-if="typeUser === 'admin'">
+                    <a class="button is-white" @click.prevent="clickCreate()">Nuevo</a>
+                    <b-dropdown aria-role="list">
+                        <template #trigger="{ active }">
+                            <b-button label="Exportar" type="is-primary" inverted outlined
+                                :icon-right="active ? 'menu-up' : 'menu-down'" />
+                        </template>
+
+                        <a class="dropdown-item text-1" href="#" @click.prevent="clickExport()">Listado</a>
+                        <a class="dropdown-item text-1" href="#" @click.prevent="clickExportWp()">Woocommerce</a>
+                        <a class="dropdown-item text-1" href="#" @click.prevent="clickExportBarcode()">Etiquetas</a>
+
+                    </b-dropdown>
+
+                    <b-dropdown aria-role="list">
+                        <template #trigger="{ active }">
+                            <b-button label="Importar" type="is-primary" inverted outlined
+                                :icon-right="active ? 'menu-up' : 'menu-down'" />
+                        </template>
+
+                        <a class="dropdown-item text-1" href="#" @click.prevent="clickImport()">Productos</a>
+                        <a class="dropdown-item text-1" href="#" @click.prevent="clickImportListPrice()">L. Precios</a>
+
+                    </b-dropdown>
+
+                </div>
+            </div>
+        </section>
+<!-- 
         <div class="page-header pr-0">
             <h2>
                 <a href="/dashboard"><i class="fas fa-tachometer-alt"></i></a>
@@ -10,101 +45,55 @@
             <div class="right-wrapper pull-right">
                 <template v-if="typeUser === 'admin'">
                     <div class="btn-group flex-wrap">
-                        <button
-                            type="button"
-                            class="btn btn-custom btn-sm mt-2 mr-2 dropdown-toggle"
-                            data-toggle="dropdown"
-                            aria-expanded="false"
-                        >
+                        <button type="button" class="btn btn-custom btn-sm mt-2 mr-2 dropdown-toggle"
+                            data-toggle="dropdown" aria-expanded="false">
                             <i class="fa fa-download"></i> Exportar
                             <span class="caret"></span>
                         </button>
-                        <div
-                            class="dropdown-menu"
-                            role="menu"
-                            x-placement="bottom-start"
-                            style="
+                        <div class="dropdown-menu" role="menu" x-placement="bottom-start" style="
                                 position: absolute;
                                 will-change: transform;
                                 top: 0px;
                                 left: 0px;
                                 transform: translate3d(0px, 42px, 0px);
-                            "
-                        >
-                            <a
-                                class="dropdown-item text-1"
-                                href="#"
-                                @click.prevent="clickExport()"
-                                >Listado</a
-                            >
-                            <a
-                                class="dropdown-item text-1"
-                                href="#"
-                                @click.prevent="clickExportWp()"
-                                >Woocommerce</a
-                            >
-                            <a
-                                class="dropdown-item text-1"
-                                href="#"
-                                @click.prevent="clickExportBarcode()"
-                                >Etiquetas</a
-                            >
+                            ">
+                            <a class="dropdown-item text-1" href="#" @click.prevent="clickExport()">Listado</a>
+                            <a class="dropdown-item text-1" href="#" @click.prevent="clickExportWp()">Woocommerce</a>
+                            <a class="dropdown-item text-1" href="#" @click.prevent="clickExportBarcode()">Etiquetas</a>
                         </div>
                     </div>
                     <div class="btn-group flex-wrap">
-                        <button
-                            type="button"
-                            class="btn btn-custom btn-sm mt-2 mr-2 dropdown-toggle"
-                            data-toggle="dropdown"
-                            aria-expanded="false"
-                        >
+                        <button type="button" class="btn btn-custom btn-sm mt-2 mr-2 dropdown-toggle"
+                            data-toggle="dropdown" aria-expanded="false">
                             <i class="fa fa-upload"></i> Importar
                             <span class="caret"></span>
                         </button>
-                        <div
-                            class="dropdown-menu"
-                            role="menu"
-                            x-placement="bottom-start"
-                            style="
+                        <div class="dropdown-menu" role="menu" x-placement="bottom-start" style="
                                 position: absolute;
                                 will-change: transform;
                                 top: 0px;
                                 left: 0px;
                                 transform: translate3d(0px, 42px, 0px);
-                            "
-                        >
-                            <a
-                                class="dropdown-item text-1"
-                                href="#"
-                                @click.prevent="clickImport()"
-                                >Productos</a
-                            >
-                            <a
-                                class="dropdown-item text-1"
-                                href="#"
-                                @click.prevent="clickImportListPrice()"
-                                >L. Precios</a
-                            >
+                            ">
+                            <a class="dropdown-item text-1" href="#" @click.prevent="clickImport()">Productos</a>
+                            <a class="dropdown-item text-1" href="#" @click.prevent="clickImportListPrice()">L.
+                                Precios</a>
                         </div>
                     </div>
-                    <button
-                        type="button"
-                        class="btn btn-custom btn-sm mt-2 mr-2"
-                        @click.prevent="clickCreate()"
-                    >
+                    <button type="button" class="btn btn-custom btn-sm mt-2 mr-2" @click.prevent="clickCreate()">
                         <i class="fa fa-plus-circle"></i> Nuevo
                     </button>
                 </template>
             </div>
-        </div>
+        </div> -->
         <div class="card mb-0">
-            <div class="card-header bg-info">
+            <!-- <div class="card-header bg-info">
                 <h3 class="my-0">{{ title }}</h3>
-            </div>
+            </div> -->
             <div class="data-table-visible-columns">
                 <el-dropdown :hide-on-click="false">
                     <el-button type="primary">
-                        Mostrar/Ocultar columnas<i class="el-icon-arrow-down el-icon--right"></i>
+                        Listar columnas<i class="el-icon-arrow-down el-icon--right"></i>
                     </el-button>
                     <el-dropdown-menu slot="dropdown">
                         <el-dropdown-item v-for="(column, index) in columns" :key="index">
@@ -113,7 +102,7 @@
                     </el-dropdown-menu>
                 </el-dropdown>
             </div>
-            <div class="card-body">
+            <div class="card-content">
                 <data-table :resource="resource" :productType="type">
                     <tr slot="heading" width="100%">
                         <th>#</th>
@@ -128,15 +117,13 @@
                             P.Unitario (Compra)
                         </th>
                         <th class="text-center">Tiene Igv (Venta)</th>
-                        <th class="text-center" v-if="columns.purchase_has_igv_description.visible">Tiene Igv (Compra)</th>
+                        <th class="text-center" v-if="columns.purchase_has_igv_description.visible">Tiene Igv (Compra)
+                        </th>
                         <th class="text-right">Acciones</th>
                     </tr>
 
                     <tr></tr>
-                    <tr
-                        slot-scope="{ index, row }"
-                        :class="{ disable_color: !row.active }"
-                    >
+                    <tr slot-scope="{ index, row }" :class="{ disable_color: !row.active }">
                         <td>{{ index }}</td>
                         <td>{{ row.internal_id }}</td>
                         <td>{{ row.unit_type_id }}</td>
@@ -148,26 +135,18 @@
                                 {{ row.stock }}
                             </div>
                             <div v-else>
-                                <template
-                                    v-if="
-                                        typeUser == 'seller' &&
-                                        row.unit_type_id != 'ZZ'
-                                    "
-                                    >{{ row.stock }}</template
-                                >
-                                <template
-                                    v-else-if="
-                                        typeUser != 'seller' &&
-                                        row.unit_type_id != 'ZZ'
-                                    "
-                                >
-                                    <button
-                                        type="button"
-                                        class="btn waves-effect waves-light btn-xs btn-info"
+                                <template v-if="
+                                    typeUser == 'seller' &&
+                                    row.unit_type_id != 'ZZ'
+                                ">{{ row.stock }}</template>
+                                <template v-else-if="
+                                    typeUser != 'seller' &&
+                                    row.unit_type_id != 'ZZ'
+                                ">
+                                    <button type="button" class="btn waves-effect waves-light btn-xs btn-info"
                                         @click.prevent="
                                             clickWarehouseDetail(row.warehouses, row.item_unit_types)
-                                        "
-                                    >
+                                        ">
                                         <i class="fa fa-search"></i>
                                     </button>
                                 </template>
@@ -190,58 +169,35 @@
                         </td>
                         <td class="text-right">
                             <template v-if="typeUser === 'admin'">
-                                <button
-                                    type="button"
-                                    class="btn waves-effect waves-light btn-xs btn-info"
-                                    @click.prevent="clickCreate(row.id)"
-                                >
+                                <button type="button" class="btn waves-effect waves-light btn-xs btn-info"
+                                    @click.prevent="clickCreate(row.id)">
                                     Editar
                                 </button>
-                                <button
-                                    type="button"
-                                    class="btn waves-effect waves-light btn-xs btn-danger"
-                                    @click.prevent="clickDelete(row.id)"
-                                >
+                                <button type="button" class="btn waves-effect waves-light btn-xs btn-danger"
+                                    @click.prevent="clickDelete(row.id)">
                                     Eliminar
                                 </button>
-                                <button
-                                    type="button"
-                                    class="btn waves-effect waves-light btn-xs btn-warning"
-                                    @click.prevent="duplicate(row.id)"
-                                >
+                                <button type="button" class="btn waves-effect waves-light btn-xs btn-warning"
+                                    @click.prevent="duplicate(row.id)">
                                     Duplicar
                                 </button>
 
-                                <button
-                                    type="button"
-                                    class="btn waves-effect waves-light btn-xs btn-danger"
-                                    @click.prevent="clickDisable(row.id)"
-                                    v-if="row.active"
-                                >
+                                <button type="button" class="btn waves-effect waves-light btn-xs btn-danger"
+                                    @click.prevent="clickDisable(row.id)" v-if="row.active">
                                     Inhabilitar
                                 </button>
-                                <button
-                                    type="button"
-                                    class="btn waves-effect waves-light btn-xs btn-primary"
-                                    @click.prevent="clickEnable(row.id)"
-                                    v-else
-                                >
+                                <button type="button" class="btn waves-effect waves-light btn-xs btn-primary"
+                                    @click.prevent="clickEnable(row.id)" v-else>
                                     Habilitar
                                 </button>
 
-                                <button
-                                    type="button"
-                                    class="btn waves-effect waves-light btn-xs btn-primary"
-                                    @click.prevent="clickBarcode(row)"
-                                >
+                                <button type="button" class="btn waves-effect waves-light btn-xs btn-primary"
+                                    @click.prevent="clickBarcode(row)">
                                     Cod. Barras
                                 </button>
 
-                                <button
-                                    type="button"
-                                    class="btn waves-effect waves-light btn-xs btn-primary"
-                                    @click.prevent="clickPrintBarcode(row)"
-                                >
+                                <button type="button" class="btn waves-effect waves-light btn-xs btn-primary"
+                                    @click.prevent="clickPrintBarcode(row)">
                                     Etiquetas
                                 </button>
                             </template>
@@ -250,31 +206,18 @@
                 </data-table>
             </div>
 
-            <items-form
-                :showDialog.sync="showDialog"
-                :recordId="recordId"
-                :type="type"
-            ></items-form>
+            <items-form :showDialog.sync="showDialog" :recordId="recordId" :type="type"></items-form>
 
             <items-import :showDialog.sync="showImportDialog"></items-import>
             <items-export :showDialog.sync="showExportDialog"></items-export>
-            <items-export-wp
-                :showDialog.sync="showExportWpDialog"
-            ></items-export-wp>
-            <items-export-barcode
-                :showDialog.sync="showExportBarcodeDialog"
-            ></items-export-barcode>
+            <items-export-wp :showDialog.sync="showExportWpDialog"></items-export-wp>
+            <items-export-barcode :showDialog.sync="showExportBarcodeDialog"></items-export-barcode>
 
-            <warehouses-detail
-                :showDialog.sync="showWarehousesDetail"
-                :warehouses="warehousesDetail"
-                :item_unit_types="item_unit_types"
-            >
+            <warehouses-detail :showDialog.sync="showWarehousesDetail" :warehouses="warehousesDetail"
+                :item_unit_types="item_unit_types">
             </warehouses-detail>
 
-            <items-import-list-price
-                :showDialog.sync="showImportListPriceDialog"
-            ></items-import-list-price>
+            <items-import-list-price :showDialog.sync="showImportListPriceDialog"></items-import-list-price>
         </div>
     </div>
 </template>
@@ -365,7 +308,7 @@ export default {
                         this.$message.error("No se guardaron los cambios");
                     }
                 })
-                .catch((error) => {});
+                .catch((error) => { });
             this.$eventHub.$emit("reloadData");
         },
         clickWarehouseDetail(warehouses, item_unit_types) {

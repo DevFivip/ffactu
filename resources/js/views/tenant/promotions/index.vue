@@ -1,6 +1,17 @@
 <template>
   <div>
-    <div class="page-header pr-0">
+            <section class="hero is-primary is-rounded">
+            <div class="hero-body">
+                <p class="title">
+                    Promociones
+                </p>
+                <div class="buttons">
+                    <b-button class="button" @click.prevent="clickCreate()">Nuevo</b-button>
+                </div>
+            </div>
+        </section>
+
+    <!-- <div class="page-header pr-0">
       <h2>
         <a href="/dashboard">
           <i class="fas fa-tachometer-alt"></i>
@@ -12,10 +23,10 @@
         </li>
       </ol>
       <div class="right-wrapper pull-right">
-        <template>
+        <template> -->
           <!-- v-if="typeUser === 'admin'" -->
           <!-- <button type="button" class="btn btn-custom btn-sm  mt-2 mr-2" @click.prevent="clickImport()"><i class="fa fa-upload"></i> Importar</button>-->
-          <button
+          <!-- <button
             type="button"
             class="btn btn-custom btn-sm mt-2 mr-2"
             @click.prevent="clickCreate()"
@@ -24,12 +35,12 @@
           </button>
         </template>
       </div>
-    </div>
+    </div> -->
     <div class="card mb-0">
-      <div class="card-header bg-info">
+      <!-- <div class="card-header bg-info">
         <h3 class="my-0">Listado de Promociones</h3>
-      </div>
-      <div class="card-body">
+      </div> -->
+      <div class="card-content">
         <data-table :apply-filter="false" :resource="resource">
           <tr slot="heading" width="100%">
             <th>#</th>

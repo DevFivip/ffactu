@@ -1,6 +1,18 @@
 <template>
   <div>
-    <div class="page-header pr-0">
+
+    <section class="hero is-primary is-rounded">
+      <div class="hero-body">
+        <p class="title">
+          Productos
+        </p>
+        <div class="buttons">
+          <b-button type="is-white" @click.prevent="clickCreate()">Nuevo</b-button>
+        </div>
+      </div>
+    </section>
+
+    <!-- <div class="page-header pr-0">
       <h2>
         <a href="/dashboard">
           <i class="fas fa-tachometer-alt"></i>
@@ -12,24 +24,20 @@
         </li>
       </ol>
       <div class="right-wrapper pull-right">
-        <template>
+        <template> -->
           <!-- v-if="typeUser === 'admin'" -->
           <!-- <button type="button" class="btn btn-custom btn-sm  mt-2 mr-2" @click.prevent="clickImport()"><i class="fa fa-upload"></i> Importar</button>-->
-          <button
-            type="button"
-            class="btn btn-custom btn-sm mt-2 mr-2"
-            @click.prevent="clickCreate()"
-          >
+          <!-- <button type="button" class="btn btn-custom btn-sm mt-2 mr-2" >
             <i class="fa fa-plus-circle"></i> Nuevo
           </button>
         </template>
       </div>
-    </div>
+    </div> -->
     <div class="card mb-0">
-      <div class="card-header bg-info">
+      <!-- <div class="card-header bg-info">
         <h3 class="my-0">Listado de productos Tienda Virtual</h3>
-      </div>
-      <div class="card-body">
+      </div> -->
+      <div class="card-content">
         <data-table :resource="resource">
           <tr slot="heading" width="100%">
             <th>#</th>
@@ -62,28 +70,18 @@
               <!--<img :src="row.image_url_medium"  width="40" height="40" class="img-thumbail img-custom" /> -->
             </td>
             <td>
-              <el-tag style="margin:1px" v-for="tag in row.tags" :key="tag.id">{{tag.tag.name}}</el-tag>
+              <el-tag style="margin:1px" v-for="tag in row.tags" :key="tag.id">{{ tag.tag.name }}</el-tag>
             </td>
             <td class="text-center">
-              <el-checkbox
-                size="medium"
-                @change="visibleStore($event, row.id)"
-                 v-model="row.apply_store"
-              ></el-checkbox>
+              <el-checkbox size="medium" @change="visibleStore($event, row.id)" v-model="row.apply_store"></el-checkbox>
             </td>
             <td class="text-right">
               <template>
                 <!-- v-if="typeUser === 'admin'" -->
-                <button
-                  type="button"
-                  class="btn waves-effect waves-light btn-xs btn-info"
-                  @click.prevent="clickCreate(row.id)"
-                >Editar</button>
-                <button
-                  type="button"
-                  class="btn waves-effect waves-light btn-xs btn-danger"
-                  @click.prevent="clickDelete(row.id)"
-                >Eliminar</button>
+                <button type="button" class="btn waves-effect waves-light btn-xs btn-info"
+                  @click.prevent="clickCreate(row.id)">Editar</button>
+                <button type="button" class="btn waves-effect waves-light btn-xs btn-danger"
+                  @click.prevent="clickDelete(row.id)">Eliminar</button>
               </template>
             </td>
           </tr>
@@ -98,13 +96,7 @@
 
       <!-- <images-record :showDialog.sync="showImageDetail" :recordImages="recordImages"></images-record> -->
 
-      <el-dialog
-        :visible.sync="showImageDetail"
-        title="Imagenes de Producto"
-        width="50%"
-        append-to-body
-        top="7vh"
-      >
+      <el-dialog :visible.sync="showImageDetail" title="Imagenes de Producto" width="50%" append-to-body top="7vh">
         <div class="row d-flex align-items-end justify-content-end">
           <div class="col-md-3">
             <h4>Thumbs</h4>
@@ -155,7 +147,7 @@ export default {
       }
     };
   },
-  created() {},
+  created() { },
   methods: {
     viewImages(row) {
       this.recordImages.image_url = row.image_url;
@@ -181,8 +173,8 @@ export default {
 
           }
         })
-        .catch(error => {})
-        .then(() => {});
+        .catch(error => { })
+        .then(() => { });
     },
     clickWarehouseDetail(warehouses) {
       this.warehousesDetail = warehouses;
@@ -200,7 +192,7 @@ export default {
         this.$eventHub.$emit("reloadData")
       );
     },
-    stock (items) {
+    stock(items) {
       let stock = 0
       items.forEach((item) => {
         stock += parseInt(item.stock)

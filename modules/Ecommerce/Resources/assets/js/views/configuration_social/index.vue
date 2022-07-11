@@ -2,10 +2,11 @@
  <template>
   <div class="col-lg-6 col-md-12">
     <div class="card">
-      <div class="card-header bg-info">
+      <!-- <div class="card-header bg-info">
         <h3 class="my-0">Redes Sociales</h3>
-      </div>
-      <div class="card-body">
+      </div> -->
+      <div class="card-content">
+                <h3 class="title is-3">Culqui</h3>
         <form autocomplete="off" @submit.prevent="submit">
           <div class="form-body">
             <div class="row">
