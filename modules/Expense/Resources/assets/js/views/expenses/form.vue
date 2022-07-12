@@ -1,9 +1,11 @@
 <template>
     <div class="card mb-0 pt-2 pt-md-0">
-        <div class="card-header bg-info">
+        <!-- <div class="card-header bg-success">
             <h3 class="my-0">Nuevo Gasto</h3>
-        </div>
-        <div class="tab-content">
+        </div> -->
+        <div class="card-content">
+
+                <h3 class="title">Nuevo Gasto</h3>
             <form autocomplete="off" @submit.prevent="submit">
                 <div class="form-body">
 
@@ -90,7 +92,7 @@
                                     <th v-if="form.payments.length>0" >Destino</th>
                                     <th v-if="form.payments.length>0">Referencia</th>
                                     <th v-if="form.payments.length>0">Monto</th>
-                                    <th width="15%"><a href="#" @click.prevent="clickAddPayment" class="text-center font-weight-bold text-info">[+ Agregar]</a></th>
+                                    <th width="15%"><a href="#" @click.prevent="clickAddPayment" class="text-center font-weight-bold text-info">+ Agregar</a></th>
                                 </tr>
                             </thead>
                             <tbody>

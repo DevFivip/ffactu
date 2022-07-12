@@ -1,13 +1,14 @@
 <template>
   <div class="card">
-    <div class="card-header bg-info">
+    <!-- <div class="card-header bg-success">
       <h3 class="my-0">Listado de Pagos</h3>
       <div class="card-actions">
         <a href="#" class="card-action card-action-toggle text-white" data-card-toggle></a>
         <a href="#" class="card-action card-action-dismiss text-white" data-card-dismiss></a>
       </div>
-    </div>
-    <div class="card-body">
+    </div> -->
+    <div class="card-content">
+      <span class="title">Listado de pagos</span>
       <div class="row">
         <div class="col"></div>
       </div>

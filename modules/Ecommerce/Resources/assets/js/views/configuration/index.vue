@@ -1,7 +1,7 @@
 <template>
   <div class="col-lg-6 col-md-12 pt-2 pt-md-0">
     <div class="card">
-      <!-- <div class="card-header bg-info">
+      <!-- <div class="card-header bg-success">
         <h3 class="my-0">Informacion de Contacto</h3>
       </div> -->
 

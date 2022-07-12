@@ -1,6 +1,6 @@
 <template>
     <div class="card card-collapsed">
-        <div class="card-header bg-info">
+        <div class="card-header bg-success">
             <h3 class="my-0">Plataformas 
             </h3>
             <div class="card-actions white-text">

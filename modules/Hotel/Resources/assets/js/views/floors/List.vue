@@ -1,6 +1,22 @@
 <template>
   <div>
-    <div class="page-header pr-0">
+    <section class="hero is-primary is-rounded">
+      <div class="hero-body">
+        <p class="title">
+          Hoteles
+        </p>
+        <p class="subtitle">
+          Registro de Pisos
+        </p>
+        <p class="buttons">
+          <button type="button" class="btn btn-custom btn-sm mt-2 mr-2" @click="onCreate">
+            <i class="fa fa-plus-circle"></i> Nuevo
+          </button>
+        </p>
+      </div>
+    </section>
+
+    <!-- <div class="page-header pr-0">
       <h2>
         <a href="/dashboard"><i class="fas fa-tachometer-alt"></i></a>
       </h2>
@@ -18,12 +34,12 @@
           </button>
         </div>
       </div>
-    </div>
+    </div> -->
     <div class="card mb-0">
-      <div class="card-header bg-info">
+      <!-- <div class="card-header bg-success">
         <h3 class="my-0">Listado de pisos</h3>
-      </div>
-      <div class="card-body">
+      </div> -->
+      <div class="card-content">
         <div class="table-responsive">
           <table class="table">
             <thead>

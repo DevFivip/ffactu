@@ -37,7 +37,7 @@
       </div>
     </div> -->
     <div class="card mb-0">
-      <!-- <div class="card-header bg-info">
+      <!-- <div class="card-header bg-success">
         <h3 class="my-0">Listado de Promociones</h3>
       </div> -->
       <div class="card-content">

@@ -1,9 +1,10 @@
 <template>
     <div class="card">
-        <div class="card-header bg-info">
+        <!-- <div class="card-header bg-success">
             <h3 class="my-0">Listado de cuentas bancarias</h3>
-        </div>
-        <div class="card-body">
+        </div> -->
+        <div class="card-content">
+            <div class="title">Listado de cuentas bancarias</div>
             <div class="table-responsive">
                 <table class="table">
                     <thead>

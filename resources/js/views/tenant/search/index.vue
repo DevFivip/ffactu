@@ -1,6 +1,6 @@
 <template>
     <div class="card">
-        <div class="card-header bg-info">
+        <div class="card-header bg-success">
             <h3 class="my-0">
                 Buscar comprobante electrónico
             </h3>

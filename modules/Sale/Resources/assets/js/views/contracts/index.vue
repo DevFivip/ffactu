@@ -1,8 +1,5 @@
 <template>
-    <div>
-
-
-        
+    <div>        
         <section class="hero is-primary is-rounded">
             <div class="hero-body">
                 <p class="title">

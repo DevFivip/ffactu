@@ -1,22 +1,33 @@
 <template>
     <div>
-        <div class="page-header pr-0">
+
+         <section class="hero is-primary is-rounded">
+            <div class="hero-body">
+                <p class="title">
+                    Establecimientos
+                </p>
+                <div class="buttons" v-if="typeUser != 'integrator'">
+                    <b-button type="is-white" @click.prevent="clickCreate()">Nuevo</b-button>
+                </div>
+            </div>
+        </section>
+        <!-- <div class="page-header pr-0">
             <h2><a href="/dashboard"><i class="fas fa-tachometer-alt"></i></a></h2>
             <ol class="breadcrumbs">
                 <li class="active"><span>Establecimientos</span></li>
             </ol>
             <div class="right-wrapper pull-right">
 
-                <button type="button" class="btn btn-custom btn-sm  mt-2 mr-2" v-if="typeUser != 'integrator'" @click.prevent="clickCreate()"><i class="fa fa-plus-circle"></i> Nuevo</button>
+                <button type="button" class="btn btn-custom btn-sm  mt-2 mr-2" v-if="typeUser != 'integrator'" @click.prevent="clickCreate()"><i class="fa fa-plus-circle"></i> Nuevo</button> -->
 
                 <!--<button type="button" class="btn btn-custom btn-sm  mt-2 mr-2" @click.prevent="clickImport()"><i class="fa fa-upload"></i> Importar</button>-->
-            </div>
-        </div>
+            <!-- </div>
+        </div> -->
         <div class="card">
-            <div class="card-header bg-info">
+            <!-- <div class="card-header bg-success">
                 <h3 class="my-0">Listado de establecimientos</h3>
-            </div>
-            <div class="card-body">
+            </div> -->
+            <div class="card-content">
                 <div class="table-responsive">
                     <table class="table">
                         <thead>

@@ -1,6 +1,6 @@
 <template>
     <div class="card mb-0 pt-2 pt-md-0">
-        <!-- <div class="card-header bg-info">
+        <!-- <div class="card-header bg-success">
             <h3 class="my-0">Nuevo Comprobante</h3>
         </div> -->
         <div class="tab-content" v-if="loading_form">
@@ -36,7 +36,7 @@
                                                 <a href="#" class="text-center font-weight-bold text-info" @click.prevent="showDialogNewPerson = true">Nuevo</a>
                                             </th>
                                             <th width="30%" v-if="form.suppliers.length>0" class="pb-2">Correo electrónico</th>
-                                            <th width="15%"><a href="#" @click.prevent="clickAddSupplier" class="text-center font-weight-bold text-info">[+ Agregar]</a></th>
+                                            <th width="15%"><a href="#" @click.prevent="clickAddSupplier" class="text-center font-weight-bold text-info">+ Agregar</a></th>
                                         </tr>
                                     </thead>
                                     <tbody>

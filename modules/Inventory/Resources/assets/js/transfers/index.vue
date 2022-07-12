@@ -1,26 +1,38 @@
 <template>
   <div>
-    <div class="page-header pr-0">
-      <h2>
-        <a href="/dashboard">
-          <i class="fas fa-tachometer-alt"></i>
-        </a>
-      </h2>
-      <ol class="breadcrumbs">
-        <li class="active">
-          <span>{{ title }}</span>
-        </li>
-      </ol>
-      <div class="right-wrapper pull-right">
-        <a href="#" @click.prevent="clickCreate()" class="btn btn-custom btn-sm mt-2 mr-2">
-          <i class="fa fa-plus-circle"></i> Nuevo
-        </a>
+    <section class="hero is-primary is-rounded">
+      <div class="hero-body">
+        <p class="title">
+          {{ title }}
+        </p>
+        <div class="buttons">
+          <b-button type="is-white" @click.prevent="clickCreate('input')">Nuevo</b-button>
+        </div>
       </div>
-    </div>
+    </section>
+
+
+    <!-- <div class="page-header pr-0">
+        <h2>
+          <a href="/dashboard">
+            <i class="fas fa-tachometer-alt"></i>
+          </a>
+        </h2>
+        <ol class="breadcrumbs">
+          <li class="active">
+            <span>{{ title }}</span>
+          </li>
+        </ol>
+        <div class="right-wrapper pull-right">
+          <a href="#" @click.prevent="clickCreate()" class="btn btn-custom btn-sm mt-2 mr-2">
+            <i class="fa fa-plus-circle"></i> Nuevo
+          </a>
+        </div>
+      </div> -->
     <div class="card mb-0">
-      <div class="card-header bg-info">
-        <h3 class="my-0">Listado de {{ title }}</h3>
-      </div>
+      <!-- <div class="card-header bg-success">
+          <h3 class="my-0">Listado de {{ title }}</h3>
+        </div> -->
       <div class="card-body">
         <data-table :resource="resource">
           <tr slot="heading">
@@ -41,7 +53,7 @@
 
             <td>{{ row.warehouse }}</td>
             <td>{{ row.warehouse_destination }}</td>
-            <td>{{ row.description}}</td>
+            <td>{{ row.description }}</td>
             <td>
               <el-popover placement="right" width="400" trigger="click">
                 <el-table :data="row.inventory">

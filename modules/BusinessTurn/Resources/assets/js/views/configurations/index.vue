@@ -1,18 +1,19 @@
 <template>
     <div>
-        <div class="page-header pr-0">
+        <!-- <div class="page-header pr-0">
             <h2><a href="/dashboard"><i class="fas fa-tachometer-alt"></i></a></h2>
             <ol class="breadcrumbs">
                 <li class="active"><span>{{ title }}</span></li>
             </ol>
             <div class="right-wrapper pull-right">
             </div>
-        </div>
+        </div> -->
         <div class="card mb-0">
-            <div class="card-header bg-info">
+            <!-- <div class="card-header bg-success">
                 <h3 class="my-0"> {{ title }}</h3>
-            </div>
-            <div class="card-body"> 
+            </div> -->
+            <div class="card-content"> 
+                <div class="title">{{title}}</div>
                 <div class="row">
                     <div class="col-md-12">
                         

@@ -1,6 +1,23 @@
 <template>
   <div>
-    <div class="page-header pr-0">
+
+    <section class="hero is-primary is-rounded">
+      <div class="hero-body">
+        <p class="title">
+          Trámites documentario
+        </p>
+        <p class="subtitle">
+          Registro de Oficinas
+        </p>
+        <p class="buttons">
+          <b-button type="is-white" @click="onCreate">
+            Nuevo
+          </b-button>
+        </p>
+      </div>
+    </section>
+
+    <!-- <div class="page-header pr-0">
       <h2>
         <a href="/dashboard"><i class="fas fa-tachometer-alt"></i></a>
       </h2>
@@ -9,37 +26,24 @@
       </ol>
       <div class="right-wrapper pull-right">
         <div class="btn-group flex-wrap">
-          <button
-            type="button"
-            class="btn btn-custom btn-sm mt-2 mr-2"
-            @click="onCreate"
-          >
+          <button type="button" class="btn btn-custom btn-sm mt-2 mr-2" @click="onCreate">
             <i class="fa fa-plus-circle"></i> Nuevo
           </button>
         </div>
       </div>
-    </div>
+    </div> -->
     <div class="card mb-0">
-      <div class="card-header bg-info">
-        <h3 class="my-0">Listado de oficinas</h3>
-      </div>
-      <div class="card-body">
+      <!-- <div class="card-header bg-success">
+        <h3 class="my-0">Listado de oficinas as</h3>
+      </div> -->
+      <div class="card-content">
         <div class="row">
           <div class="col-12 col-md-2 mb-3">
             <form class="form-group" @submit.prevent="onFilter">
               <div class="input-group mb-3">
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder="Filtrar por nombre"
-                  v-model="filter.name"
-                />
+                <input type="text" class="form-control" placeholder="Filtrar por nombre" v-model="filter.name" />
                 <div class="input-group-append">
-                  <button
-                    class="btn btn-outline-secondary"
-                    type="submit"
-                    style="border-color: #ced4da"
-                  >
+                  <button class="btn btn-outline-secondary" type="submit" style="border-color: #ced4da">
                     <i class="fa fa-search"></i>
                   </button>
                 </div>
@@ -59,11 +63,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr
-                v-for="item in items"
-                :key="item.id"
-                :class="{ 'table-danger': !item.active }"
-              >
+              <tr v-for="item in items" :key="item.id" :class="{ 'table-danger': !item.active }">
                 <td class="text-right">{{ item.id }}</td>
                 <td>{{ item.name }}</td>
                 <td>{{ item.description }}</td>
@@ -72,18 +72,10 @@
                   <span v-else>No</span>
                 </td>
                 <td class="text-center">
-                  <el-button
-                    type="success"
-                    @click="onEdit(item)"
-                    :disabled="loading"
-                  >
+                  <el-button type="success" @click="onEdit(item)" :disabled="loading">
                     <i class="fa fa-edit"></i>
                   </el-button>
-                  <el-button
-                    type="danger"
-                    @click="onDelete(item)"
-                    :disabled="loading"
-                  >
+                  <el-button type="danger" @click="onDelete(item)" :disabled="loading">
                     <i class="fa fa-trash"></i>
                   </el-button>
                 </td>
@@ -93,12 +85,8 @@
         </div>
       </div>
     </div>
-    <ModalAddEdit
-      :visible.sync="openModalAddEdit"
-      @onAddItem="onAddItem"
-      @onUpdateItem="onUpdateItem"
-      :office="office"
-    ></ModalAddEdit>
+    <ModalAddEdit :visible.sync="openModalAddEdit" @onAddItem="onAddItem" @onUpdateItem="onUpdateItem" :office="office">
+    </ModalAddEdit>
   </div>
 </template>
 

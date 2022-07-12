@@ -5,12 +5,12 @@ $path[2] = (array_key_exists(2, $path)> 0)?$path[2]:'';
 $path[0] = ($path[0] === '')?'documents':$path[0];
 @endphp
 <!-- <tenant-sidenavbar-index path_1="{{$path[1]}}" path_2="{{$path[2]}}" path_0="{{$path[0]}}"></tenant-sidenavbar-index> -->
-<aside id="sidebar-left is-hidden-touch" class="menu">
+<aside id="sidebar-left" class="menu is-hidden-touch card">
     <ul class="menu-list">
         @if(in_array('dashboard', $vc_modules))
         <li>
             <a class="{{ ($path[0] === 'dashboard')?'is-active':'' }}" href="{{ route('tenant.dashboard.index') }}">
-                <span>Dashboard</span>
+                <span><i class="fa-solid fa-chart-line"></i> Dashboard</span>
             </a>
         </li>
         @endif
@@ -18,7 +18,7 @@ $path[0] = ($path[0] === '')?'documents':$path[0];
         @if(in_array('documents', $vc_modules))
         <li x-data='{ open1:"{{ ($path[0] === 'documents')?'true':'' }}{{ ($path[0] === 'items')?'true':'' }}{{ ($path[0] === 'services')?'true':'' }}{{ ($path[0] === 'persons' && $path[1] === 'customers')?'true':'' }}{{ ($path[0] === 'summaries')?'true':'' }}{{ ($path[0] === 'voided')?'true':'' }}{{ ($path[0] === 'quotations')?'true':'' }}{{ ($path[0] === 'sale-notes')?'true':'' }}{{ ($path[0] === 'contingencies')?'true':'' }}{{ ($path[0] === 'person-types')?'true':'' }}{{ ($path[0] === 'brands')?'true':'' }}{{ ($path[0] === 'categories')?'true':'' }}{{ ($path[0] === 'incentives')?'true':'' }}{{ ($path[0] === 'order-notes')?'true':'' }}{{ ($path[0] === 'sale-opportunities')?'true':'' }}{{ ($path[0] === 'contracts')?'true':'' }}{{ ($path[0] === 'production-orders')?'true':'' }}{{ ($path[0] === 'technical-services')?'true':'' }}{{ ($path[0] === 'user-commissions')?'true':'' }}{{ ($path[0] === 'regularize-shipping')?'true':'' }}{{ ($path[0] === 'item-lots')?'true':'' }}" }'>
             <a x-bind:class="open1 ? 'is-active' : ''"  href="javascript:;" @click="open1 = !open1 ">
-                <span>Ventas</span>
+                <span><i class="fa-solid fa-file-invoice"></i> Ventas</span>
             </a>
             <ul x-show="open1" x-transition">
                 @if(auth()->user()->type != 'integrator' && $vc_company->soap_type_id != '03')
@@ -241,7 +241,7 @@ $path[0] = ($path[0] === '')?'documents':$path[0];
         @if(in_array('pos', $vc_modules))
         <li x-data='{open2:"{{ ($path[0] === 'pos')?'true':'' }}{{ ($path[0] === 'cash')?'true':'' }}{{ ($path[0] === 'item-sets')?'true':'' }}"}'>
             <a x-bind:class="open2 ? 'is-active':''" @click="open2 = !open2 "  href="javascript:;">
-                <span>Pos</span>
+                <span><i class="fa-solid fa-cash-register"></i> Pos</span>
             </a>
             <ul x-show="open2" x-transition>
                 <li>
@@ -269,7 +269,8 @@ $path[0] = ($path[0] === '')?'documents':$path[0];
         @if(in_array('ecommerce', $vc_modules))
         <li x-data='{open3:"{{in_array($path[0], ['ecommerce','items_ecommerce', 'tags', 'promotions', 'orders', 'configuration'])?'true':'' }}"}'>
             <a x-bind:class="open3 ? 'is-active':''" @click="open3 = !open3"  href="javascript:;">
-                Tienda Virtual
+            <i class="fa-solid fa-store"></i>
+            Tienda Virtual
             </a>
             <ul x-show="open3" x-transition>
                 <li>
@@ -312,7 +313,7 @@ $path[0] = ($path[0] === '')?'documents':$path[0];
         @if(in_array('purchases', $vc_modules))
         <li x-data='{open4:"{{ ($path[0] === 'purchases')?'nav-active nav-expanded':'' }}{{ ($path[0] === 'persons' && $path[1] === 'suppliers')?'nav-active nav-expanded':'' }}{{ ($path[0] === 'expenses')?'nav-active nav-expanded':'' }}{{ ($path[0] === 'purchase-quotations')?'nav-active nav-expanded':'' }}{{ ($path[0] === 'purchase-orders')?'nav-active nav-expanded':'' }}{{ ($path[0] === 'fixed-asset')?'nav-active nav-expanded':'' }}"}'>
             <a x-bind:class="open4 ? 'is-active':''" @click="open4 = !open4 "  href="javascript:;">
-                <span>Compras</span>
+                <span> <i class="fa-solid fa-cart-shopping"></i> Compras</span>
             </a>
             <ul x-show="open4" x-transition>
                 <li>
@@ -380,7 +381,7 @@ $path[0] = ($path[0] === '')?'documents':$path[0];
         @if(in_array('inventory', $vc_modules))
         <li x-data='{open5:"{{ (in_array($path[0], ['inventory', 'warehouses', 'moves', 'transfers', 'devolutions']) || ($path[0] === 'reports' && in_array($path[1], ['kardex', 'inventory', 'valued-kardex'])))?'true':'' }}"}'>
             <a x-bind:class="open5 ? 'is-active':''" @click="open5 = !open5 "  href="javascript:;">
-                <span>Inventario</span>
+                <span><i class="fa-solid fa-boxes-stacked"></i> Inventario</span>
             </a>
             <ul x-show="open5" x-transition>
                 <li>
@@ -419,7 +420,7 @@ $path[0] = ($path[0] === '')?'documents':$path[0];
         @if(in_array('establishments', $vc_modules))
         <li x-data='{open6:"{{ in_array($path[0], ['users', 'establishments'])?'true':'' }}"}'>
             <a x-bind:class="open6 ? 'is-active':''" @click="open6 = !open6 "  href="javascript:;">
-                <span>Usuarios/Locales & Series</span>
+                <span><i class="fa-solid fa-users"></i> Usuarios/Locales & Series</span>
             </a>
             <ul x-show="open6" x-transition>
                 <li>
@@ -438,7 +439,7 @@ $path[0] = ($path[0] === '')?'documents':$path[0];
         @if(in_array('advanced', $vc_modules) && $vc_company->soap_type_id != '03')
         <li x-data='{open7:"{{($path[0] === 'retentions')?'true':''}}{{ ($path[0] === 'dispatches')?'true':'' }}{{($path[0] === 'perceptions')?'true':''}}{{($path[0] === 'drivers')?'true':'' }}{{($path[0] === 'dispatchers')?'true':''}}{{($path[0] === 'order-forms')?'true':'' }}"}'>
             <a x-bind:class="open7 ? 'is-active':''" @click="open7 = !open7 "  href="javascript:;">
-                <span>Comprobantes avanzados</span>
+                <span><i class="fa-solid fa-file-lines"></i> Comprobantes avanzados</span>
             </a>
             <ul x-show="open7" x-transition>
                 <li>
@@ -488,7 +489,7 @@ $path[0] = ($path[0] === '')?'documents':$path[0];
         @if(in_array('reports', $vc_modules))
         <li x-data='{open8:"{{($path[0] === 'reports' && in_array($path[1], ['purchases', 'search','sales','customers','items','general-items','consistency-documents', 'quotations', 'sale-notes','cash','commissions','document-hotels','validate-documents', 'document-detractions','commercial-analysis', 'order-notes-consolidated','order-notes-general', 'sales-consolidated', 'user-commissions', 'fixed-asset-purchases', 'massive-downloads'])) ? 'true' : ''}}"}'>
             <a x-bind:class="open8 ? 'is-active':''" @click="open8 = !open8 "  href="javascript:;">
-                <span>Reportes</span>
+                <span><i class="fa-solid fa-print"></i> Reportes</span>
             </a>
             <ul x-show="open8" x-transition>
                 <li x-data='{open8_1:"{{($path[0] === 'reports' && in_array($path[1], ['purchases', 'fixed-asset-purchases'])) ? 'is-active' : ''}}"}'>
@@ -641,7 +642,7 @@ $path[0] = ($path[0] === '')?'documents':$path[0];
         @if(in_array('accounting', $vc_modules))
         <li x-data='{open10:"{{ ($path[0] === 'account')?'nav-active nav-expanded':'' }}"}'>
             <a x-bind:class="open10 ? 'is-active':''" @click="open10 = !open10 "  href="javascript:;">
-                <span>Contabilidad</span>
+                <span><i class="fa-solid fa-file-invoice-dollar"></i> Contabilidad</span>
             </a>
             <ul x-show="open10" x-transition>
                 <li>
@@ -667,7 +668,7 @@ $path[0] = ($path[0] === '')?'documents':$path[0];
 
         <li x-data='{open11:"{{$path[0] === 'finances' && in_array($path[1], ['global-payments', 'balance','payment-method-types', 'unpaid', 'to-pay', 'income', 'movements'])?'nav-active nav-expanded' : ''}}"}'>
             <a x-bind:class="open11 ? 'is-active':''" @click="open11 = !open11 "  href="javascript:;">
-                <span>Finanzas</span>
+                <span><i class="fa-solid fa-money-bill"></i> Finanzas</span>
             </a>
             <ul x-show="open11" x-transition>
                 <li>
@@ -712,7 +713,7 @@ $path[0] = ($path[0] === '')?'documents':$path[0];
         @if(in_array('configuration', $vc_modules))
         <li x-data='{open12:"{{in_array($path[0], ['companies', 'catalogs', 'advanced', 'tasks', 'inventories','company_accounts','bussiness_turns','offline-configurations','series-configurations','configurations', 'login-page']) ? 'nav-active nav-expanded' : ''}}"}'>
             <a x-bind:class="open12 ? 'is-active':''" @click="open12 = !open12 "  href="javascript:;">
-                <span>Configuración</span>
+                <span><i class="fa-solid fa-gears"></i> Configuración</span>
             </a>
             <ul x-show="open12" x-transition>
                 <li>
@@ -791,7 +792,7 @@ $path[0] = ($path[0] === '')?'documents':$path[0];
         @if(in_array('cuenta', $vc_modules))
         <li x-data='{open14:"{{ ($path[0] === 'cuenta')?'is-active':'' }}"}'>
             <a x-bind:class="open14 ? 'is-active':''" @click="open14 = !open14 "  href="javascript:;">
-                <span>Mis Pagos</span>
+                <span><i class="fa-solid fa-credit-card"></i> Mis Pagos</span>
             </a>
             <ul x-show="open14" x-transition>
                 <li>
@@ -804,7 +805,6 @@ $path[0] = ($path[0] === '')?'documents':$path[0];
                         Lista de Pagos
                     </a>
                 </li>
-
             </ul>
         </li>
         <p class="menu-label">
@@ -813,7 +813,7 @@ $path[0] = ($path[0] === '')?'documents':$path[0];
         @endif
         <li x-data='{open15:"{{($path[0] === 'hotels')?'true' : '' }}"}'>
             <a x-bind:class="open15 ? 'is-active':''" @click="open15 = !open15"  href="javascript:;">
-                <span>Hoteles</span>
+                <span><i class="fa-solid fa-hotel"></i> Hoteles</span>
             </a>
             <ul x-show="open15" x-transition>
                 <li>
@@ -832,11 +832,11 @@ $path[0] = ($path[0] === '')?'documents':$path[0];
                     <a class="{{ (($path[0] === 'hotels') && ($path[1] === 'rooms')) ? 'is-active' : '' }}"  href="{{ url('hotels/rooms') }}">Habitaciones</a>
                 </li>
                 <li>
-                    <a class="{{ (($path[0] === 'hotels') && ($path[1] === 'rooms')) ? 'is-active' : '' }}"  href="{{ url('hotels/workers') }}">Trabajadores</a>
+                    <a class="{{ (($path[0] === 'hotels') && ($path[1] === 'workers')) ? 'is-active' : '' }}"  href="{{ url('hotels/workers') }}">Trabajadores</a>
                 </li>
             </ul>
         </li>
-        <li x-data='{open16:"{{ ($path[0] === 'documentary-procedure') ? 'nav-active nav-expanded' : '' }}"}'>
+        <li x-data='{open16:"{{ ($path[0] === 'documentary-procedure') ? 'nav-active nav-expanded' : '' }}"}' style="display:none;">
             <a x-bind:class="open16 ? 'is-active':''" @click="open16 = !open16 "  href="javascript:;">
                 <span>Trámite documentario</span>
             </a>
@@ -858,5 +858,4 @@ $path[0] = ($path[0] === '')?'documents':$path[0];
                 </li>
             </ul>
         </li>
-
 </aside>

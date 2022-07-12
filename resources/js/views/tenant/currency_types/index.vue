@@ -1,9 +1,10 @@
 <template>
     <div class="card">
-        <div class="card-header bg-info">
+        <!-- <div class="card-header bg-success">
             <h3 class="my-0">Listado de monedas</h3>
-        </div>
-        <div class="card-body">
+        </div> -->
+        <div class="card-content">
+            <h2 class="title">Listado de monedas</h2>
             <div class="table-responsive">
                 <table class="table">
                     <thead>

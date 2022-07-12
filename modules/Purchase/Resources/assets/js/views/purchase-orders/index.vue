@@ -1,6 +1,19 @@
 <template>
   <div>
-    <div class="page-header pr-0">
+
+
+    <section class="hero is-primary is-rounded">
+      <div class="hero-body">
+        <p class="title">
+          Ordenes de compras
+        </p>
+        <div class="buttons">
+          <a class="button" :href="`/${resource}/create`">Nuevo</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- <div class="page-header pr-0">
       <h2>
         <a href="/dashboard">
           <i class="fas fa-tachometer-alt"></i>
@@ -16,9 +29,11 @@
           <i class="fa fa-plus-circle"></i> Nuevo
         </a>
       </div>
-    </div>
+    </div> -->
+
+
     <div class="card mb-0">
-      <div class="card-body">
+      <div class="card-content">
         <data-table :resource="resource">
           <tr slot="heading">
             <th>#</th>
@@ -57,7 +72,7 @@
               <small v-text="row.document_type_description"></small>
               <br />
             </td>
-            <td>{{row.sale_opportunity_number_full}}</td>
+            <td>{{ row.sale_opportunity_number_full }}</td>
 
             <!-- <td>{{ row.payment_method_type_description }}</td> -->
             <!-- <td>{{ row.state_type_description }}</td> -->
@@ -70,13 +85,13 @@
             <td class="text-right">{{ row.total_igv }}</td>
             <!-- <td class="text-right">{{ row.total_perception ? row.total_perception : 0 }}</td> -->
             <td class="text-right">{{ row.total }}</td>
-            
-                        <td class="text-center"> 
 
-                            <button type="button" class="btn waves-effect waves-light btn-xs btn-info"
-                                    @click.prevent="clickDownload(row.external_id)">PDF</button>
-                        </td>
-                        
+            <td class="text-center">
+
+              <button type="button" class="btn waves-effect waves-light btn-xs btn-info"
+                @click.prevent="clickDownload(row.external_id)">PDF</button>
+            </td>
+
             <td class="text-right">
               <!-- <el-button
                 @click.prevent="clickOptions(row.id)"
@@ -92,21 +107,23 @@
               >Anular</el-button> -->
 
 
-              <button type="button" v-if="!row.has_purchases && row.state_type_id!='11'" class="btn waves-effect waves-light btn-xs btn-custom m-1__2"
-                      @click.prevent="clickCreate(row.id)">Editar</button>
+              <button type="button" v-if="!row.has_purchases && row.state_type_id != '11'"
+                class="btn waves-effect waves-light btn-xs btn-custom m-1__2"
+                @click.prevent="clickCreate(row.id)">Editar</button>
 
               <!-- <button type="button" v-if="!row.has_purchases && row.state_type_id!='11'" class="btn waves-effect waves-light btn-xs btn-success m-1__2"
                       @click.prevent="clickGenerateDocument(row.id)">Generar compra</button> -->
 
-                      
-              <a :href="`/purchases/create/${row.id}`" class="btn waves-effect waves-light btn-xs btn-success m-1__2"  
-                      v-if="!row.has_purchases && row.state_type_id!='11'">Generar compra</a>
 
-              <button type="button" v-if="!row.has_purchases && row.state_type_id!='11'" class="btn waves-effect waves-light btn-xs btn-danger m-1__2"
-                      @click.prevent="clickAnulate(row.id)">Anular</button>
+              <a :href="`/purchases/create/${row.id}`" class="btn waves-effect waves-light btn-xs btn-success m-1__2"
+                v-if="!row.has_purchases && row.state_type_id != '11'">Generar compra</a>
+
+              <button type="button" v-if="!row.has_purchases && row.state_type_id != '11'"
+                class="btn waves-effect waves-light btn-xs btn-danger m-1__2"
+                @click.prevent="clickAnulate(row.id)">Anular</button>
 
               <button type="button" class="btn waves-effect waves-light btn-xs btn-info m-1__2"
-                      @click.prevent="clickOptions(row.id)">Opciones</button>  
+                @click.prevent="clickOptions(row.id)">Opciones</button>
             </td>
           </tr>
         </data-table>
@@ -121,61 +138,59 @@
         :showClose="true"
       ></document-generate> -->
 
-      
-        <purchase-options :showDialog.sync="showDialogOptions"
-                          :recordId="recordId"
-                          :showClose="true"></purchase-options>
+
+      <purchase-options :showDialog.sync="showDialogOptions" :recordId="recordId" :showClose="true"></purchase-options>
     </div>
   </div>
 </template>
 
 <script>
-    // import DocumentGenerate from "./partials/document_generate.vue";
-    // import DocumentOptions from './partials/document_options.vue'
-    import DataTable from "../../../../../../../resources/js/components/DataTable.vue";
-    import PurchaseOptions from './partials/options.vue'
+// import DocumentGenerate from "./partials/document_generate.vue";
+// import DocumentOptions from './partials/document_options.vue'
+import DataTable from "../../../../../../../resources/js/components/DataTable.vue";
+import PurchaseOptions from './partials/options.vue'
 
-    import {deletable} from '@mixins/deletable'
+import { deletable } from '@mixins/deletable'
 
 
 export default {
-      mixins: [deletable],
-      // components: {DocumentsVoided, DocumentOptions, DataTable},
-      components: { DataTable , PurchaseOptions}, //DocumentOptions
-      data() {
-        return {
-          showDialogVoided: false,
-          resource: "purchase-orders",
-          recordId: null,
-          showDialogOptions: false,
-          showDialogGenerateDocument: false,
-        };
-      },
-      created() {},
-      methods: {
-          clickCreate(id = '') {
-              location.href = `/${this.resource}/create/${id}`
-          },
-          clickVoided(recordId = null) {
-            this.recordId = recordId;
-            this.showDialogVoided = true;
-          },
-                  clickDownload(external_id) {
-                      window.open(`/${this.resource}/download/${external_id}`, '_blank');                
-                  },
-          clickGenerateDocument(recordId) {
-            this.recordId = recordId;
-            this.showDialogGenerateDocument = true;
-          },
-          clickAnulate(id) {
-            this.anular(`/${this.resource}/anular/${id}`).then(() =>
-              this.$eventHub.$emit("reloadData")
-            );
-          },
-          clickOptions(recordId = null) {
-              this.recordId = recordId
-              this.showDialogOptions = true
-          },  
-    }
+  mixins: [deletable],
+  // components: {DocumentsVoided, DocumentOptions, DataTable},
+  components: { DataTable, PurchaseOptions }, //DocumentOptions
+  data() {
+    return {
+      showDialogVoided: false,
+      resource: "purchase-orders",
+      recordId: null,
+      showDialogOptions: false,
+      showDialogGenerateDocument: false,
+    };
+  },
+  created() { },
+  methods: {
+    clickCreate(id = '') {
+      location.href = `/${this.resource}/create/${id}`
+    },
+    clickVoided(recordId = null) {
+      this.recordId = recordId;
+      this.showDialogVoided = true;
+    },
+    clickDownload(external_id) {
+      window.open(`/${this.resource}/download/${external_id}`, '_blank');
+    },
+    clickGenerateDocument(recordId) {
+      this.recordId = recordId;
+      this.showDialogGenerateDocument = true;
+    },
+    clickAnulate(id) {
+      this.anular(`/${this.resource}/anular/${id}`).then(() =>
+        this.$eventHub.$emit("reloadData")
+      );
+    },
+    clickOptions(recordId = null) {
+      this.recordId = recordId
+      this.showDialogOptions = true
+    },
+  }
 };
 </script>

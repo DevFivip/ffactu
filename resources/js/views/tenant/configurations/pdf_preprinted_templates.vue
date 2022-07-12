@@ -1,6 +1,22 @@
 <template>
     <div>
-        <div class="page-header pr-0">
+
+        <section class="hero is-primary is-rounded">
+            <div class="hero-body">
+                <p class="title">
+                    Configuración
+                </p>
+                <p class="subtitle">
+                    Formatos Pre Impresos
+                </p>
+                <p class="buttons">
+                    <b-button @click="addSeeder"> <i class="el-icon-refresh"></i> Actualizar Listado</b-button>
+                </p>
+            </div>
+        </section>
+
+
+        <!-- <div class="page-header pr-0">
             <h2>
                 <a href="#"><i class="fas fa-cogs"></i></a>
             </h2>
@@ -17,36 +33,32 @@
                     <i class="el-icon-refresh"></i> Actualizar listado
                 </button>
             </div>
-        </div>
+        </div> -->
         <div class="card">
-            <div class="card-header bg-info">
+            <!-- <div class="card-header bg-success">
                 <h3 class="my-0">
                     Selección de plantilla de impresión para imprimir
                 </h3>
-            </div>
-            <div class="card-body pt-0 pb-5">
-                <div class="row">
+            </div> -->
+            <div class="card-content pt-0 pb-5">
+                <span>
+                    <p class="title">Seleccione plantilla de impresión para imprimir</p>
+                </span>
+                <div class="row pt-3">
                     <div v-for="(o, index) in formatos" class="col-md-3 my-2">
-                        <el-card
-                            :body-style="{ padding: '0px' }"
-                            :id="o.formats"
-                        >
-                            <a @click="viewImage(o.formats)"
-                                ><img
-                                    :src="
-                                        path.origin +
-                                            '/templates/preprinted_pdf/' +
-                                            o.formats +
-                                            '/image.png'
-                                    "
-                                    class="image"
-                                    style="width: 100%"
-                            /></a>
+                        <el-card :body-style="{ padding: '0px' }" :id="o.formats">
+                            <a @click="viewImage(o.formats)"><img :src="
+                                path.origin +
+                                '/templates/preprinted_pdf/' +
+                                o.formats +
+                                '/image.png'
+                            " class="image" style="width: 100%" /></a>
                             <div style="padding: 14px;">
                                 <span class="text-center">{{ o.formats }}</span>
                                 <div class="bottom clearfix text-right">
                                     <!-- <el-button type="submit" class="button" @change="changeFormat(o.formats)">Activo</el-button> -->
-                                    <el-button type="submit" @click="showPdf(o.formats)" class="button">Imprimir</el-button>
+                                    <el-button type="submit" @click="showPdf(o.formats)" class="button">Imprimir
+                                    </el-button>
                                     <!-- <el-radio
                                         v-model="form.formats"
                                         :label="o.formats"
@@ -67,22 +79,16 @@
         </div>
         <el-dialog :visible.sync="modalImage" width="60">
             <span>
-                <img
-                    :src="
-                        path.origin +
-                            '/templates/preprinted_pdf/' +
-                            template +
-                            '/image.png'
-                    "
-                    class="image"
-                    style="width: 100%"
-                />
+                <img :src="
+                    path.origin +
+                    '/templates/preprinted_pdf/' +
+                    template +
+                    '/image.png'
+                " class="image" style="width: 100%" />
             </span>
             <span slot="footer" class="dialog-footer">
                 <el-button @click="modalImage = false">Cerrar</el-button>
-                <el-button @click="changeFormat(template)" type="primary"
-                    >Activar</el-button
-                >
+                <el-button @click="changeFormat(template)" type="primary">Activar</el-button>
             </span>
         </el-dialog>
     </div>
@@ -117,12 +123,12 @@ export default {
         });
     },
     methods: {
-        showPdf(template){
+        showPdf(template) {
             let body = {
                 base_pdf_template: template
             }
-            this.$http.post(`/${this.resource}/preprinted/generateDispatch`,body).then(response => {
-                window.open(`/${this.resource}/preprinted/`+response.data, '_blank');
+            this.$http.post(`/${this.resource}/preprinted/generateDispatch`, body).then(response => {
+                window.open(`/${this.resource}/preprinted/` + response.data, '_blank');
 
             });
         },

@@ -7,7 +7,7 @@
                 <form action="{{ route('reception.report_rooms.pdf') }}" class="d-inline" method="POST">
                     {{csrf_field()}}
                     <input type="hidden" name="warehouse_id" value="{{request()->warehouse_id ? request()->warehouse_id : 'all'}}">
-                    <button class="btn btn-primary" type="submit"><i class="fa fa-file-pdf"></i> Reporte PDF</button>
+                    <button class="button is-primary" type="submit"><i class="fa fa-file-pdf"></i> &nbsp;Reporte PDF</button>
                 </form>
             </div>
         </div>

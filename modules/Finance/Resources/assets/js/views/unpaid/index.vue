@@ -1,11 +1,80 @@
 <template>
-    <div class="card mb-0 pt-2 pt-md-0">
-        <div class="card-header bg-info">
-            <h3 class="my-0">Cuentas por cobrar</h3>
-        </div>
-        <div class="card mb-0">
-            <div class="card-body">
+    <div >
+       <section class="hero is-primary is-rounded">
+            <div class="hero-body">
+                <p class="title">
+                    Cuenta por pagar
+                </p>
 
+                <div class="columns">
+
+                    <div class="column">
+                        <div class="card">
+                          <div class="card-content">
+                            <p class="title has-text-centered has-text-dark">
+                           {{getTotalRowsUnpaid}}
+                            </p>
+                            <p class="subtitle has-text-centered has-text-dark">
+                            Total Comprobantes
+                            </p>
+                          </div>
+                        </div>
+                    </div>  
+                    <div class="column">
+                        <div class="card">
+                          <div class="card-content">
+                            <p class="title has-text-centered has-text-dark">
+                           {{getTotalAmountUnpaid}}
+                            </p>
+                            <p class="subtitle has-text-centered has-text-dark">
+                            Monto general (PEN)
+                            </p>
+                          </div>
+                        </div>
+                    </div>  
+                    <div class="column">
+                        <div class="card">
+                          <div class="card-content">
+                            <p class="title has-text-centered has-text-dark">
+                           {{getCurrentBalance}}
+                            </p>
+                            <p class="subtitle has-text-centered has-text-dark">
+                            Saldo Corriente (PEN)
+                            </p>
+                          </div>
+                        </div>
+                    </div>  
+                    <div class="column">
+                        <div class="card">
+                          <div class="card-content">
+                            <p class="title has-text-centered has-text-dark">
+                           {{getTotalAmountUnpaidUsd}}
+                            </p>
+                            <p class="subtitle has-text-centered has-text-dark">
+                            Monto General (USD)
+                            </p>
+                          </div>
+                        </div>
+                    </div>  
+                    <div class="column">
+                        <div class="card">
+                          <div class="card-content">
+                            <p class="title has-text-centered has-text-dark">
+                           {{getCurrentBalanceUsd}}
+                            </p>
+                            <p class="subtitle has-text-centered has-text-dark">
+                            Saldo Corriente (USD)
+                            </p>
+                          </div>
+                        </div>
+                    </div>  
+
+                </div>
+            </div>
+        </section>
+        <div class="card mb-0">
+            <div class="card-content">
+                    <span class="title">Cuentas por Cobrar</span>
                 <div class="row">
 
                     <div class="col-xl-12">
@@ -167,34 +236,7 @@
                                         <i class="fa fa-file-pdf"></i> Exportar PDF
                                     </el-button>
                                 </div>
-                                <div class="col-md-1 mt-5 text-right">
-                                </div>
-
-                                <div class="col-md-2 mt-5 text-right">
-                                    <el-badge :value="getTotalRowsUnpaid" class="item">
-                                    <span size="small">Total comprobantes</span>
-                                    </el-badge>
-                                </div>
-                                <div class="col-md-2 mt-5 text-right">
-                                    <el-badge :value="getTotalAmountUnpaid" class="item">
-                                    <span size="small">Monto general (PEN)</span>
-                                    </el-badge>
-                                </div>
-                                <div class="col-md-2 mt-5 text-right">
-                                    <el-badge :value="getCurrentBalance" class="item">
-                                    <span size="small">Saldo corriente (PEN)</span>
-                                    </el-badge>
-                                </div>
-                                <div class="col-md-2 mt-5 text-right">
-                                    <el-badge :value="getTotalAmountUnpaidUsd" class="item">
-                                    <span size="small">Monto general (USD)</span>
-                                    </el-badge>
-                                </div>
-                                <div class="col-md-2 mt-5 text-right">
-                                    <el-badge :value="getCurrentBalanceUsd" class="item">
-                                    <span size="small">Saldo corriente (USD)</span>
-                                    </el-badge>
-                                </div>
+             
 
                                 <div class="col-md-12 table-responsive" >
                                     <table class="table">

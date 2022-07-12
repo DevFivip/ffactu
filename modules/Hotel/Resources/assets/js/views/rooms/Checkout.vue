@@ -1,6 +1,24 @@
 <template>
   <div>
-    <div class="page-header pr-0">
+
+    <section class="hero is-primary is-rounded">
+      <div class="hero-body">
+        <p class="title">
+          Hoteles
+        </p>
+        <p class="subtitle">
+          {{ title }}
+        </p>
+        <p class="buttons">
+           <b-button type="is-white" class="btn btn-custom btn-sm mt-2 mr-2" @click="onGotoBack">
+            <i class="fa fa-arrow-left"></i> Atras
+          </b-button>
+        </p>
+      </div>
+    </section>
+
+
+    <!-- <div class="page-header pr-0">
       <h2>
         <a href="/dashboard"><i class="fas fa-tachometer-alt"></i></a>
       </h2>
@@ -9,21 +27,17 @@
       </ol>
       <div class="right-wrapper pull-right">
         <div class="btn-group flex-wrap">
-          <button
-            type="button"
-            class="btn btn-custom btn-sm mt-2 mr-2"
-            @click="onGotoBack"
-          >
+          <b-button type="is-white" class="btn btn-custom btn-sm mt-2 mr-2" @click="onGotoBack">
             <i class="fa fa-arrow-left"></i> Atras
-          </button>
+          </b-button>
         </div>
       </div>
-    </div>
+    </div> -->
     <div class="card mb-0">
-      <div class="card-header bg-info">
+      <!-- <div class="card-header bg-success">
         <h3 class="my-0">{{ title }}</h3>
-      </div>
-      <div class="card-body">
+      </div> -->
+      <div class="card-content">
         <div class="row">
           <div class="col-12 col-md-4 mb-3">
             <ul class="list-group">
@@ -56,17 +70,13 @@
               <li class="list-group-item active">Entrada/Salida</li>
               <li class="list-group-item d-flex justify-content-between">
                 <span>Fecha/Hora Entrada:</span>
-                <strong
-                  >{{ this.rent.input_date | toDate }} -
-                  {{ this.rent.input_time | toTime }}</strong
-                >
+                <strong>{{ this.rent.input_date | toDate }} -
+                  {{ this.rent.input_time | toTime }}</strong>
               </li>
               <li class="list-group-item d-flex justify-content-between">
                 <span>Fecha/Hora Salida:</span>
-                <strong
-                  >{{ this.rent.output_date | toDate }} -
-                  {{ this.rent.output_time | toTime }}</strong
-                >
+                <strong>{{ this.rent.output_date | toDate }} -
+                  {{ this.rent.output_time | toTime }}</strong>
               </li>
             </ul>
           </div>
@@ -100,11 +110,7 @@
                     <td></td>
                     <td class="text-center">
                       <div class="d-d-inline-block" style="max-width: 120px">
-                        <el-input
-                          v-model="total"
-                          readonly
-                          type="number"
-                        ></el-input>
+                        <el-input v-model="total" readonly type="number"></el-input>
                       </div>
                     </td>
                   </tr>
@@ -120,11 +126,7 @@
                     <td>Estado</td>
                     <td>Total</td>
                   </tr>
-                  <tr
-                    v-for="(it, i) in rent.items"
-                    :key="i"
-                    v-show="it.type === 'PRO'"
-                  >
+                  <tr v-for="(it, i) in rent.items" :key="i" v-show="it.type === 'PRO'">
                     <td>{{ i + 1 }}</td>
                     <td>{{ it.item.item.description }}</td>
                     <td>{{ it.item.input_unit_price_value | toDecimals }}</td>
@@ -141,7 +143,7 @@
                     <td>
                       <h3 class="my-0">
                         <span class="badge badge-pill badge-info">{{
-                          totalPaid | toDecimals
+                            totalPaid | toDecimals
                         }}</span>
                       </h3>
                     </td>
@@ -151,7 +153,7 @@
                     <td>
                       <h3 class="my-0">
                         <span class="badge badge-pill badge-danger">{{
-                          totalDebt | toDecimals
+                            totalDebt | toDecimals
                         }}</span>
                       </h3>
                     </td>
@@ -161,88 +163,42 @@
             </div>
           </div>
           <div class="col-lg-3">
-            <div
-              class="form-group"
-              :class="{ 'has-danger': errors.document_type_id }"
-            >
+            <div class="form-group" :class="{ 'has-danger': errors.document_type_id }">
               <label class="control-label">Tipo comprobante</label>
-              <el-select
-                v-model="document.document_type_id"
-                @change="changeDocumentType"
-                popper-class="el-select-document_type"
-                dusk="document_type_id"
-                class="border-left rounded-left border-info"
-              >
-                <el-option
-                  v-for="option in document_types"
-                  :key="option.id"
-                  :value="option.id"
-                  :label="option.description"
-                ></el-option>
+              <el-select v-model="document.document_type_id" @change="changeDocumentType"
+                popper-class="el-select-document_type" dusk="document_type_id"
+                class="border-left rounded-left border-info">
+                <el-option v-for="option in document_types" :key="option.id" :value="option.id"
+                  :label="option.description"></el-option>
               </el-select>
-              <small
-                class="form-control-feedback"
-                v-if="errors.document_type_id"
-                v-text="errors.document_type_id[0]"
-              ></small>
+              <small class="form-control-feedback" v-if="errors.document_type_id"
+                v-text="errors.document_type_id[0]"></small>
             </div>
           </div>
           <div class="col-lg-3">
             <div class="form-group" :class="{ 'has-danger': errors.series_id }">
               <label class="control-label">Serie</label>
               <el-select v-model="document.series_id">
-                <el-option
-                  v-for="option in series"
-                  :key="option.id"
-                  :value="option.id"
-                  :label="option.number"
-                ></el-option>
+                <el-option v-for="option in series" :key="option.id" :value="option.id" :label="option.number">
+                </el-option>
               </el-select>
-              <small
-                class="form-control-feedback"
-                v-if="errors.series_id"
-                v-text="errors.series_id[0]"
-              ></small>
+              <small class="form-control-feedback" v-if="errors.series_id" v-text="errors.series_id[0]"></small>
             </div>
           </div>
           <div class="col-lg-3">
-            <div
-              class="form-group"
-              :class="{ 'has-danger': errors.date_of_issue }"
-            >
+            <div class="form-group" :class="{ 'has-danger': errors.date_of_issue }">
               <label class="control-label">Fecha de emisión</label>
-              <el-date-picker
-                readonly
-                v-model="document.date_of_issue"
-                type="date"
-                value-format="yyyy-MM-dd"
-                :clearable="false"
-                @change="changeDateOfIssue"
-              ></el-date-picker>
-              <small
-                class="form-control-feedback"
-                v-if="errors.date_of_issue"
-                v-text="errors.date_of_issue[0]"
-              ></small>
+              <el-date-picker readonly v-model="document.date_of_issue" type="date" value-format="yyyy-MM-dd"
+                :clearable="false" @change="changeDateOfIssue"></el-date-picker>
+              <small class="form-control-feedback" v-if="errors.date_of_issue" v-text="errors.date_of_issue[0]"></small>
             </div>
           </div>
           <div class="col-lg-3">
-            <div
-              class="form-group"
-              :class="{ 'has-danger': errors.date_of_issue }"
-            >
+            <div class="form-group" :class="{ 'has-danger': errors.date_of_issue }">
               <label class="control-label">Fecha de vencimiento</label>
-              <el-date-picker
-                v-model="document.date_of_due"
-                type="date"
-                value-format="yyyy-MM-dd"
-                :clearable="false"
-              ></el-date-picker>
-              <small
-                class="form-control-feedback"
-                v-if="errors.date_of_due"
-                v-text="errors.date_of_due[0]"
-              ></small>
+              <el-date-picker v-model="document.date_of_due" type="date" value-format="yyyy-MM-dd" :clearable="false">
+              </el-date-picker>
+              <small class="form-control-feedback" v-if="errors.date_of_due" v-text="errors.date_of_due[0]"></small>
             </div>
           </div>
 
@@ -255,12 +211,8 @@
                   <th v-if="document.payments.length > 0">Referencia</th>
                   <th v-if="document.payments.length > 0">Monto</th>
                   <th width="15%">
-                    <a
-                      href="#"
-                      @click.prevent="clickAddPayment"
-                      class="text-center font-weight-bold text-info"
-                      >[+ Agregar]</a
-                    >
+                    <a href="#" @click.prevent="clickAddPayment" class="text-center font-weight-bold text-info">+
+                      Agregar</a>
                   </th>
                 </tr>
               </thead>
@@ -269,28 +221,17 @@
                   <td>
                     <div class="form-group mb-2 mr-2">
                       <el-select v-model="row.payment_method_type_id">
-                        <el-option
-                          v-for="option in paymentMethodTypes"
-                          :key="option.id"
-                          :value="option.id"
-                          :label="option.description"
-                        ></el-option>
+                        <el-option v-for="option in paymentMethodTypes" :key="option.id" :value="option.id"
+                          :label="option.description"></el-option>
                       </el-select>
                     </div>
                   </td>
                   <td>
                     <div class="form-group mb-2 mr-2">
-                      <el-select
-                        v-model="row.payment_destination_id"
-                        filterable
-                        :disabled="row.payment_destination_disabled"
-                      >
-                        <el-option
-                          v-for="option in paymentDestinations"
-                          :key="option.id"
-                          :value="option.id"
-                          :label="option.description"
-                        ></el-option>
+                      <el-select v-model="row.payment_destination_id" filterable
+                        :disabled="row.payment_destination_disabled">
+                        <el-option v-for="option in paymentDestinations" :key="option.id" :value="option.id"
+                          :label="option.description"></el-option>
                       </el-select>
                     </div>
                   </td>
@@ -305,11 +246,8 @@
                     </div>
                   </td>
                   <td class="series-table-actions text-center">
-                    <button
-                      type="button"
-                      class="btn waves-effect waves-light btn-xs btn-danger"
-                      @click.prevent="clickCancel(index)"
-                    >
+                    <button type="button" class="btn waves-effect waves-light btn-xs btn-danger"
+                      @click.prevent="clickCancel(index)">
                       <i class="fa fa-trash"></i>
                     </button>
                   </td>
@@ -319,25 +257,16 @@
             </table>
           </div>
           <div class="col-12 pt-3">
-            <el-button
-              :loading="loading"
-              :disabled="loading"
-              type="primary"
-              @click="onGoToInvoice"
-            >
+            <b-button :loading="loading" :disabled="loading" type="is-primary" @click="onGoToInvoice">
               <i class="fa fa-save"></i>
               <span class="ml-2">Guardar y Generar Comprobante</span>
-            </el-button>
+            </b-button>
           </div>
         </div>
       </div>
     </div>
-    <document-options
-      :showDialog.sync="showDialogDocumentOptions"
-      :recordId="documentNewId"
-      :isContingency="false"
-      :showClose="true"
-    ></document-options>
+    <document-options :showDialog.sync="showDialogDocumentOptions" :recordId="documentNewId" :isContingency="false"
+      :showClose="true"></document-options>
   </div>
 </template>
 

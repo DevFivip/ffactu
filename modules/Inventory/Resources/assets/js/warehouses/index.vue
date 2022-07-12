@@ -1,19 +1,30 @@
 <template>
     <div>
-        <div class="page-header pr-0">
+
+        <section class="hero is-primary is-rounded">
+            <div class="hero-body">
+                <p class="title">
+                    {{ title }}
+                </p>
+                <div class="buttons">
+                    <a class="button"  @click.prevent="clickCreate()" >Nuevo</a>
+                </div>
+            </div>
+        </section>
+        <!-- <div class="page-header pr-0">
             <h2><a href="/dashboard"><i class="fas fa-tachometer-alt"></i></a></h2>
             <ol class="breadcrumbs">
                 <li class="active"><span>{{ title }}</span></li>
             </ol>
-            <div class="right-wrapper pull-right">
+            <div class="right-wrapper pull-right"> -->
                 <!--<button type="button" class="btn btn-custom btn-sm  mt-2 mr-2" @click.prevent="clickCreate()"><i class="fa fa-plus-circle"></i> Nuevo</button>-->
-            </div>
-        </div>
+            <!-- </div>
+        </div> -->
         <div class="card mb-0">
-            <div class="card-header bg-info">
+            <!-- <div class="card-header bg-success">
                 <h3 class="my-0">{{ title }}</h3>
-            </div>
-            <div class="card-body">
+            </div> -->
+            <div class="card-content">
                 <data-table :resource="resource">
                     <tr slot="heading">
                         <th>#</th>
@@ -26,42 +37,42 @@
                         <td>{{ row.description }}</td>
                         <td>{{ row.establishment_description }}</td>
                         <td class="text-right">
-                            <button type="button" class="btn waves-effect waves-light btn-xs btn-info" @click.prevent="clickCreate(row.id)">Editar</button>
+                            <button type="button" class="btn waves-effect waves-light btn-xs btn-info"
+                                @click.prevent="clickCreate(row.id)">Editar</button>
                         </td>
                     </tr>
                 </data-table>
             </div>
 
-            <warehouses-form :showDialog.sync="showDialog"
-                             :recordId="recordId"></warehouses-form>
+            <warehouses-form :showDialog.sync="showDialog" :recordId="recordId"></warehouses-form>
         </div>
     </div>
 </template>
 
 <script>
 
-    import WarehousesForm from './form.vue'
-    import DataTable from '../../../../../../resources/js/components/DataTable.vue'
+import WarehousesForm from './form.vue'
+import DataTable from '../../../../../../resources/js/components/DataTable.vue'
 
-    export default {
-        props: ['type'],
-        components: {DataTable, WarehousesForm},
-        data() {
-            return {
-                title: null,
-                showDialog: false,
-                resource: 'warehouses',
-                recordId: null,
-            }
-        },
-        created() {
-            this.title = 'Listado de almacenes'
-        },
-        methods: {
-            clickCreate(recordId) {
-                this.recordId = recordId
-                this.showDialog = true
-            }
+export default {
+    props: ['type'],
+    components: { DataTable, WarehousesForm },
+    data() {
+        return {
+            title: null,
+            showDialog: false,
+            resource: 'warehouses',
+            recordId: null,
+        }
+    },
+    created() {
+        this.title = 'Listado de almacenes'
+    },
+    methods: {
+        clickCreate(recordId) {
+            this.recordId = recordId
+            this.showDialog = true
         }
     }
+}
 </script>

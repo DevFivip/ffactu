@@ -277,7 +277,7 @@
                             <el-tooltip class="item" effect="dark" content="Diferentes presentaciones para la venta del producto" placement="top">
                                 <i class="fa fa-info-circle"></i>
                             </el-tooltip>
-                            <a href="#" class="control-label font-weight-bold text-info" @click.prevent="clickAddAttribute">[+ Agregar]</a>
+                            <a href="#" class="control-label font-weight-bold text-info" @click.prevent="clickAddAttribute">+ Agregar</a>
                         </h5>
                     </div>
                     <div v-if="form.attributes.length > 0" class="col-md-12">

@@ -1,6 +1,18 @@
 <template>
     <div>
-        <div class="page-header pr-0">
+        
+        <section class="hero is-primary is-rounded">
+            <div class="hero-body">
+                <p class="title">
+                    Ordenes de pedido
+                </p>
+                <div class="buttons">
+                    <a :href="`/${resource}/create`" class="button is-white"> Nuevo</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- <div class="page-header pr-0">
             <h2><a href="/dashboard"><i class="fas fa-tachometer-alt"></i></a></h2>
             <ol class="breadcrumbs">
                 <li class="active"><span>Ordenes de pedido</span></li>
@@ -8,9 +20,9 @@
             <div class="right-wrapper pull-right">
                 <a :href="`/${resource}/create`" class="btn btn-custom btn-sm  mt-2 mr-2"><i class="fa fa-plus-circle"></i> Nuevo</a>
             </div>
-        </div>
+        </div> -->
         <div class="card mb-0">
-            <div class="card-body">
+            <div class="card-content">
                 <data-table :resource="resource">
                     <tr slot="heading">
                         <th>#</th>

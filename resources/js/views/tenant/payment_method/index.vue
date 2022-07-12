@@ -1,6 +1,6 @@
 <template>
   <div class="card card-collapsed">
-    <div class="card-header bg-info">
+    <div class="card-header bg-success">
       <h3 class="my-0">Listado de métodos de pago
         
         <el-tooltip class="item" effect="dark" content="Catálogo de Sunat - Operaciones relacionadas a la misma" placement="top-start">

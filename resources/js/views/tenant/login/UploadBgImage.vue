@@ -1,20 +1,11 @@
 <template>
   <div>
-    <img
-      :src="imageUrl"
-      alt="Vista previa"
-      class="img-fluid img-thumbnail w-100 mb-3"
-    />
-    <input
-      type="file"
-      @change="onGeneratePreview"
-      ref="inputFile"
-      class="hidden"
-    />
-    <small class="form-control-feedback">Se recomienda una imagen de 747 x 547px con fondo transparente en formato PNG o SVG</small>
-    <el-button type="primary" class="btn-block" @click="onShowFilePicker" :loading="loading" :disabled="loading"
-      >Cambiar image de fondo</el-button
-    >
+    <img :src="imageUrl" alt="Vista previa" class="img-fluid img-thumbnail w-100 mb-3" />
+    <input type="file" @change="onGeneratePreview" ref="inputFile" class="hidden" />
+    <small class="form-control-feedback pb-5">Se recomienda una imagen de 747 x 547px con fondo transparente en formato
+      PNG o SVG</small>
+    <button class="button is-primary is-fullwidth" @click="onShowFilePicker" :loading="loading" :disabled="loading">Cambiar
+      imagen de fondo</button>
   </div>
 </template>
 

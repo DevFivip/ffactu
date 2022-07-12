@@ -132,7 +132,7 @@
                                             </th>
                                             <th v-if="form.payments.length>0" class="pb-2">Referencia</th>
                                             <th v-if="form.payments.length>0" class="pb-2">Monto</th>
-                                            <th width="15%"><a href="#" @click.prevent="clickAddPayment" class="text-center font-weight-bold text-info">[+ Agregar]</a></th>
+                                            <th width="15%"><a href="#" @click.prevent="clickAddPayment" class="text-center font-weight-bold text-info">+ Agregar</a></th>
                                         </tr>
                                     </thead>
                                     <tbody>

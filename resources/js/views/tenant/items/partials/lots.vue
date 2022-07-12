@@ -10,7 +10,7 @@
                                 <th v-if="lots.length>0">Serie</th>
                                 <th v-if="lots.length>0">Estado</th>
                                 <th v-if="lots.length>0">Fecha</th>
-                                <th width="15%"><a href="#" @click.prevent="clickAddLot" class="text-center font-weight-bold text-info">[+ Agregar]</a></th>
+                                <th width="15%"><a href="#" @click.prevent="clickAddLot" class="text-center font-weight-bold text-info">+ Agregar</a></th>
                             </tr>
                         </thead>
                         <tbody>

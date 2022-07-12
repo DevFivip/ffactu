@@ -1,9 +1,9 @@
 <template>
     <div class="card mb-0 pt-2 pt-md-0">
-        <!-- <div class="card-header bg-info">
+        <!-- <div class="card-header bg-success">
             <h3 class="my-0">Nuevo Comprobante</h3>
         </div> -->
-        <div class="tab-content" v-if="loading_form">
+        <div class="card-content" v-if="loading_form">
             <div class="invoice">
                 <header class="clearfix">
                     <div class="row">

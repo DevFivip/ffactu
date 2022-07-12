@@ -1,6 +1,25 @@
 <template>
   <div>
-    <div class="page-header pr-0">
+
+
+    <section class="hero is-primary is-rounded">
+      <div class="hero-body">
+        <p class="title">
+          Hoteles
+        </p>
+        <p class="subtitle">
+          Registro de Tarifas
+        </p>
+        <p class="buttons">
+          <button type="button" class="btn btn-custom btn-sm mt-2 mr-2" @click="onCreateRate">
+            <i class="fa fa-plus-circle"></i> Nuevo
+          </button>
+        </p>
+      </div>
+    </section>
+
+
+    <!-- <div class="page-header pr-0">
       <h2>
         <a href="/dashboard"><i class="fas fa-tachometer-alt"></i></a>
       </h2>
@@ -9,21 +28,17 @@
       </ol>
       <div class="right-wrapper pull-right">
         <div class="btn-group flex-wrap">
-          <button
-            type="button"
-            class="btn btn-custom btn-sm mt-2 mr-2"
-            @click="onCreateRate"
-          >
+          <button type="button" class="btn btn-custom btn-sm mt-2 mr-2" @click="onCreateRate">
             <i class="fa fa-plus-circle"></i> Nuevo
           </button>
         </div>
       </div>
-    </div>
+    </div> -->
     <div class="card mb-0">
-      <div class="card-header bg-info">
+      <!-- <div class="card-header bg-success">
         <h3 class="my-0">Listado de tarifas</h3>
-      </div>
-      <div class="card-body">
+      </div> -->
+      <div class="card-content">
         <div class="table-responsive">
           <table class="table">
             <thead>
@@ -56,12 +71,8 @@
         </div>
       </div>
     </div>
-    <ModalAddEdit
-      :visible.sync="openModalAddEdit"
-      @onAddItem="onAddItem"
-      @onUpdateItem="onUpdateItem"
-      :rate="rate"
-    ></ModalAddEdit>
+    <ModalAddEdit :visible.sync="openModalAddEdit" @onAddItem="onAddItem" @onUpdateItem="onUpdateItem" :rate="rate">
+    </ModalAddEdit>
   </div>
 </template>
 
@@ -92,20 +103,20 @@ export default {
   methods: {
     onDelete(item) {
       this.$confirm(`¿estás seguro de eliminar al elemento ${item.description}?`, 'Atención', {
-          confirmButtonText: 'Si, continuar',
-          cancelButtonText: 'No, cerrar',
-          type: 'warning'
-        }).then(() => {
-          this.$http.delete(`/hotels/rates/${item.id}/delete`).then(response => {
-            this.$message({
-              type: 'success',
-              message: response.data.message
-            });
-            this.items = this.items.filter(i => i.id !== item.id);
-          }).catch(error => {
-            this.axiosError(error)
+        confirmButtonText: 'Si, continuar',
+        cancelButtonText: 'No, cerrar',
+        type: 'warning'
+      }).then(() => {
+        this.$http.delete(`/hotels/rates/${item.id}/delete`).then(response => {
+          this.$message({
+            type: 'success',
+            message: response.data.message
           });
-        }).catch();
+          this.items = this.items.filter(i => i.id !== item.id);
+        }).catch(error => {
+          this.axiosError(error)
+        });
+      }).catch();
     },
     onEdit(item) {
       this.rate = { ...item };

@@ -1,9 +1,7 @@
 <template>
   <div class="card mb-0 pt-2 pt-md-0">
-    <div class="card-header bg-info">
-      <h3 class="my-0">Nuevo Traslado</h3>
-    </div>
-    <div class="tab-content">
+    <div class="card-content">
+      <span class="title">Nuevo Translado</span>
       <form autocomplete="off" @submit.prevent="submit">
         <div class="form-body">
           <div class="row">

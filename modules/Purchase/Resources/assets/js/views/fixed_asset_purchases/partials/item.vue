@@ -54,7 +54,7 @@
                                     <div class="col-md-12 px-0" v-if="discount_types.length > 0">
                                         <label class="control-label">
                                             Descuentos
-                                            <a href="#" @click.prevent="clickAddDiscount">[+ Agregar]</a>
+                                            <a href="#" @click.prevent="clickAddDiscount">+ Agregar</a>
                                         </label>
                                         <table class="table">
                                             <thead>
@@ -88,7 +88,7 @@
                                     <div class="col-md-12 px-0" v-if="charge_types.length > 0">
                                         <label class="control-label">
                                             Cargos
-                                            <a href="#" @click.prevent="clickAddCharge">[+ Agregar]</a>
+                                            <a href="#" @click.prevent="clickAddCharge">+ Agregar</a>
                                         </label>
                                         <table class="table">
                                             <thead>
@@ -122,7 +122,7 @@
                                     <div class="col-md-12 px-0" v-if="attribute_types.length > 0">
                                         <label class="control-label">
                                             Atributos
-                                            <a href="#" @click.prevent="clickAddAttribute">[+ Agregar]</a>
+                                            <a href="#" @click.prevent="clickAddAttribute">+ Agregar</a>
                                         </label>
                                         <table class="table">
                                             <thead>

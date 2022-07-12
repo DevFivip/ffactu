@@ -1,19 +1,32 @@
 <template>
   <div>
-    <div class="page-header pr-0">
+
+    <section class="hero is-primary is-rounded">
+      <div class="hero-body">
+        <p class="title">
+          Configuración
+        </p>
+        <p class="subtitle">
+          Configuración de la página de inicio de sesión
+        </p>
+      </div>
+    </section>
+
+    <!-- <div class="page-header pr-0">
       <h2>
         <a href="/dashboard"><i class="fas fa-tachometer-alt"></i></a>
       </h2>
       <ol class="breadcrumbs">
         <li class="active"><span>Configuración del login</span></li>
       </ol>
-    </div>
+    </div> -->
+
     <template v-if="user.type === 'admin'">
       <div class="card mb-0">
-        <div class="card-header bg-info">
+        <!-- <div class="card-header bg-success">
           <h3 class="my-0">Configuración de la página de inicio de sesión</h3>
-        </div>
-        <div class="card-body">
+        </div> -->
+        <div class="card-content">
           <div class="row">
             <div class="col-12 col-md-4 form-group">
               <ImageBgUpload :config="configuration.login"></ImageBgUpload>
@@ -22,18 +35,11 @@
               <div class="form-group">
                 <label>Posición del formulario</label>
                 <el-select v-model="form.position_form">
-                  <el-option
-                    key="left"
-                    value="left"
-                    label="Izquierda"
-                  ></el-option>
-                  <el-option
-                    key="right"
-                    value="right"
-                    label="Derecha"
-                  ></el-option>
+                  <el-option key="left" value="left" label="Izquierda"></el-option>
+                  <el-option key="right" value="right" label="Derecha"></el-option>
                 </el-select>
-                <small class="form-control-feedback" v-if="errors.position_form" v-text="errors.position_form[0]"></small>
+                <small class="form-control-feedback" v-if="errors.position_form"
+                  v-text="errors.position_form[0]"></small>
               </div>
               <div class="form-group">
                 <label>Mostrar logo en el formulario</label>
@@ -42,28 +48,13 @@
               <div class="form-group">
                 <label>Posición del logo de la empresa</label>
                 <el-select v-model="form.position_logo">
-                  <el-option
-                    key="top-left"
-                    value="top-left"
-                    label="Superior izquierda"
-                  ></el-option>
-                  <el-option
-                    key="bottom-left"
-                    value="bottom-left"
-                    label="Inferior izquierda"
-                  ></el-option>
-                  <el-option
-                    key="top-right"
-                    value="top-right"
-                    label="Superior derecha"
-                  ></el-option>
-                  <el-option
-                    key="bottom-right"
-                    value="bottom-right"
-                    label="Inferior derecha"
-                  ></el-option>
+                  <el-option key="top-left" value="top-left" label="Superior izquierda"></el-option>
+                  <el-option key="bottom-left" value="bottom-left" label="Inferior izquierda"></el-option>
+                  <el-option key="top-right" value="top-right" label="Superior derecha"></el-option>
+                  <el-option key="bottom-right" value="bottom-right" label="Inferior derecha"></el-option>
                 </el-select>
-                <small class="form-control-feedback" v-if="errors.position_logo" v-text="errors.position_logo[0]"></small>
+                <small class="form-control-feedback" v-if="errors.position_logo"
+                  v-text="errors.position_logo[0]"></small>
               </div>
             </div>
             <div class="col-12 col-md-4">
@@ -83,18 +74,12 @@
                 <label>Instagram</label>
                 <el-input v-model="form.instagram"></el-input>
               </div>
-              <div class="form-group">
+              <div class="form-group pb-5">
                 <label>Linkedin</label>
                 <el-input v-model="form.linkedin"></el-input>
               </div>
-              <el-button
-                :loading="loading"
-                :disabled="loading"
-                class="btn-block mt-3"
-                @click="onSubmit"
-                type="primary"
-                >GUARDAR</el-button
-              >
+              <b-button :loading="loading" :disabled="loading" type="is-primary" @click="onSubmit">
+                GUARDAR</b-button>
             </div>
           </div>
         </div>
@@ -128,7 +113,7 @@ export default {
     };
   },
   mounted() {
-      this.form = this.configuration.login;
+    this.form = this.configuration.login;
   },
   methods: {
     onSubmit() {

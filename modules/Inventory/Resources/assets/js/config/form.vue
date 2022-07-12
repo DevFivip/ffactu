@@ -1,9 +1,10 @@
 <template>
     <div class="card">
-        <div class="card-header bg-info">
+        <!-- <div class="card-header bg-success">
             <h3 class="my-0">Configuraciones</h3>
-        </div>
-        <div class="card-body">
+        </div> -->
+        <div class="card-content">
+            <span class="title">Configuraciones</span>
             <form autocomplete="off">
                 <div class="form-body">
                     <div class="row">

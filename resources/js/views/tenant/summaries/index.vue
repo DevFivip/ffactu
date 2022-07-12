@@ -22,7 +22,7 @@
             </div>
         </header> -->
         <div class="card">
-            <!-- <div class="card-header bg-info">
+            <!-- <div class="card-header bg-success">
                 <h3 class="my-0">Listado de resúmenes</h3>
             </div> -->
 

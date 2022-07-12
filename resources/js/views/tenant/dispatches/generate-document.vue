@@ -210,7 +210,7 @@
                     href="#"
                     @click.prevent="clickAddPayment"
                     class="text-center font-weight-bold text-info"
-                    >[+ Agregar]</a
+                    >+ Agregar</a
                   >
                 </th>
               </tr>

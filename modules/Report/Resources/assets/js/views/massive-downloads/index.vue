@@ -1,10 +1,10 @@
 <template>
-    <div class="card mb-0 pt-2 pt-md-0">
-        <div class="card-header bg-info">
+        <!-- <div class="card-header bg-success">
             <h3 class="my-0">Descarga masiva de documentos</h3>
-        </div>
+        </div> -->
         <div class="card mb-0">
-            <div class="card-body">
+            <div class="card-content">
+                <span class="title">Descarga masiva de documentos</span>
                 <div class="row">
                     <div class="col-md-12 col-lg-12 col-xl-12 ">
 
@@ -72,9 +72,7 @@
                     </div>
                 </div>  
             </div> 
-        </div>
- 
-    </div>
+        </div> 
 </template>
 
 <script>

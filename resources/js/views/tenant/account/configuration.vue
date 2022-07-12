@@ -1,9 +1,10 @@
 <template>
   <div class="card col-md-5">
-    <div class="card-header bg-info">
+    <!-- <div class="card-header bg-success">
       <h3 class="my-0">Tipo de Plan de la Empresa</h3>
-    </div>
-    <div class="card-body">
+    </div> -->
+    <div class="card-content">
+      <span class="title"> Tipo de Plan de la Empresa</span>
       <form autocomplete="off" > <!-- @submit.prevent="submit" -->
         <div class="form-body">
           <div class="row">

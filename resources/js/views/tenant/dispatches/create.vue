@@ -1,9 +1,11 @@
 <template>
     <div class="card mb-0 pt-2 pt-md-0">
-        <div class="card-header bg-info">
-            <h3 class="my-0">Nueva Guía de Remisión</h3>
-        </div>
-        <div class="card-body">
+        <!-- <div class="card-header bg-success">
+            <h3 class="my-0">Nueva Guía de Remisión </h3>
+        </div> -->
+        <div class="card-content">
+
+            <span class="title">Nueva Guia de Remisión</span>
             <form autocomplete="off" @submit.prevent="submit">
                 <div class="form-body">
                     <div class="row">

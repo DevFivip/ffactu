@@ -53,7 +53,7 @@
           </div>
           <div class="col-md-12 mb-0">
             <section class="card card-horizontal">
-              <header class="card-header bg-info">
+              <header class="card-header bg-success">
                 <div class="card-header-icon">
                   <i class="fas fa-file-alt"></i>
                 </div>
@@ -201,7 +201,7 @@
     </div>
 
     <div class="card" id="client-list">
-      <div class="card-header bg-info">Listado de Clientes</div>
+      <div class="card-header bg-success">Listado de Clientes</div>
       <div class="card-body">
         <div class="row">
           <div class="col">

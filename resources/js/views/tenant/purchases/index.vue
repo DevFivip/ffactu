@@ -1,5 +1,24 @@
 <template>
     <div>
+
+        <section class="hero is-primary is-rounded">
+            <div class="hero-body">
+                <p class="title">
+                    Compras
+                </p>
+                
+                <p class="subtitle">
+                    Facturas - Boletas - Notas
+                </p>
+
+                <div class="buttons">
+                    <a :href="`/${resource}/create`" class="button is-white">Nuevo</a>
+                    <b-button @click.prevent="clickImport()" type="is-white" >Importar</b-button>
+                </div>
+            </div>
+        </section>
+
+<!-- 
         <div class="page-header pr-0">
             <h2><a href="/dashboard"><i class="fas fa-tachometer-alt"></i></a></h2>
             <ol class="breadcrumbs">
@@ -10,7 +29,7 @@
                 <button   @click.prevent="clickImport()" type="button" class="btn btn-custom btn-sm  mt-2 mr-2" ><i class="fa fa-upload"></i> Importar</button>
 
             </div>
-        </div>
+        </div> -->
         <div class="card mb-0">
             <div class="data-table-visible-columns">
                 <el-dropdown :hide-on-click="false">
@@ -24,7 +43,7 @@
                     </el-dropdown-menu>
                 </el-dropdown>
             </div>
-            <div class="card-body">
+            <div class="card-content">
                 <data-table :resource="resource">
                     <tr slot="heading">
                         <th>#</th>

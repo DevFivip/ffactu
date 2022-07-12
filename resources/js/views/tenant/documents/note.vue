@@ -1,6 +1,6 @@
 <template>
     <div class="card mb-0">
-        <div class="card-header bg-info">
+        <div class="card-header bg-success">
             Nueva Nota ({{ document.series }}-{{ document.number }})
         </div>
         <div class="card-body">

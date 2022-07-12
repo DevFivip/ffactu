@@ -1,9 +1,11 @@
 <template>
     <div class="card">
-        <div class="card-header bg-info">
+        <!-- <div class="card-header bg-success">
             <h3 class="my-0">Otras Operaciones</h3>
-        </div>
-        <div class="card-body">
+        </div> -->
+        <div class="card-content">
+            <span class="title">Otras Operaciones</span>
+            <br><br>
             <form autocomplete="off" @submit.prevent="deleteDocuments">
                 <div class="form-body">
                     <div class="row">

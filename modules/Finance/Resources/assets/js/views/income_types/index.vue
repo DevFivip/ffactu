@@ -1,6 +1,6 @@
 <template>
     <div class="card card-collapsed">
-        <div class="card-header bg-info">
+        <div class="card-header bg-success">
             <h3 class="my-0">Tipos de comprobantes
                 <el-tooltip class="item" effect="dark" content="Ingresos" placement="top-start">
                     <i class="fa fa-info-circle"></i>

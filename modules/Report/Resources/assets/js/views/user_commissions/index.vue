@@ -1,14 +1,15 @@
 <template>
-    <div class="card mb-0 pt-2 pt-md-0">
-        <div class="card-header bg-info">
+    <!-- <div class="card mb-0 pt-2 pt-md-0"> -->
+        <!-- <div class="card-header bg-success">
             <h3 class="my-0">Comisiones vendedores - utilidades 
                 <el-tooltip class="item" effect="dark" content="Total ventas (CPE - NV) - Total compras" placement="top-end">
                     <i class="fa fa-info-circle"></i>
                 </el-tooltip>
             </h3>
-        </div>
+        </div> -->
         <div class="card mb-0">
-                <div class="card-body">
+                <div class="card-content">
+                    <span class="title">Comisiones vendedores - utilidades</span>
                     <data-table :resource="resource">
                         <tr slot="heading">
                             <th>#</th>
@@ -32,8 +33,8 @@
                     
                 </div> 
         </div>
- 
-    </div>
+    <!--  
+        </div> -->
 </template>
 
 <script>

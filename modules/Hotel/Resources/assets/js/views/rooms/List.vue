@@ -1,6 +1,26 @@
 <template>
   <div>
-    <div class="page-header pr-0">
+
+
+    <section class="hero is-primary is-rounded">
+      <div class="hero-body">
+        <p class="title">
+          Hoteles
+        </p>
+        <p class="subtitle">
+          Registro de Habitaciones
+        </p>
+        <p class="buttons">
+          <b-button type="is-white" @click="onCreate">
+            Nuevo
+          </b-button>
+        </p>
+      </div>
+    </section>
+
+
+
+    <!-- <div class="page-header pr-0">
       <h2>
         <a href="/dashboard"><i class="fas fa-tachometer-alt"></i></a>
       </h2>
@@ -18,20 +38,16 @@
           </button>
         </div>
       </div>
-    </div>
+    </div> -->
     <div class="card mb-0">
-      <div class="card-header bg-info">
+      <!-- <div class="card-header bg-success">
         <h3 class="my-0">Listado de habitaciones</h3>
-      </div>
-      <div class="card-body">
+      </div> -->
+      <div class="card-content">
         <div class="row">
           <div class="col-12 col-md-2 mb-3">
             <div class="form-group">
-              <select
-                class="form-control"
-                v-model="filter.status"
-                @change="onFilter"
-              >
+              <select class="form-control" v-model="filter.status" @change="onFilter">
                 <option value="">Filtrar por estado</option>
                 <option v-for="st in roomStatus" :key="st" :value="st">
                   {{ st }}
@@ -41,11 +57,7 @@
           </div>
           <div class="col-12 col-md-2 mb-3">
             <div class="form-group">
-              <select
-                class="form-control"
-                v-model="filter.hotel_floor_id"
-                @change="onFilter"
-              >
+              <select class="form-control" v-model="filter.hotel_floor_id" @change="onFilter">
                 <option value="">Filtrar por piso</option>
                 <option v-for="fl in floors" :key="fl.id" :value="fl.id">
                   {{ fl.description }}
@@ -55,11 +67,7 @@
           </div>
           <div class="col-12 col-md-2 mb-3">
             <div class="form-group">
-              <select
-                class="form-control"
-                v-model="filter.hotel_category_id"
-                @change="onFilter"
-              >
+              <select class="form-control" v-model="filter.hotel_category_id" @change="onFilter">
                 <option value="">Filtrar por categoría</option>
                 <option v-for="ca in categories" :key="ca.id" :value="ca.id">
                   {{ ca.description }}
@@ -70,18 +78,9 @@
           <div class="col-12 col-md-2 mb-3">
             <form class="form-group" @submit.prevent="onFilter">
               <div class="input-group mb-3">
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder="Filtrar por nombre"
-                  v-model="filter.name"
-                />
+                <input type="text" class="form-control" placeholder="Filtrar por nombre" v-model="filter.name" />
                 <div class="input-group-append">
-                  <button
-                    class="btn btn-outline-secondary"
-                    type="submit"
-                    style="border-color: #ced4da"
-                  >
+                  <button class="btn btn-outline-secondary" type="submit" style="border-color: #ced4da">
                     <i class="fa fa-search"></i>
                   </button>
                 </div>
@@ -105,11 +104,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr
-                v-for="item in items"
-                :key="item.id"
-                :class="{ 'table-info': !item.active }"
-              >
+              <tr v-for="item in items" :key="item.id" :class="{ 'table-info': !item.active }">
                 <td class="text-right">{{ item.id }}</td>
                 <td>{{ item.name }}</td>
                 <td>{{ item.category.description }}</td>
@@ -121,21 +116,13 @@
                 </td>
                 <td>{{ item.status }}</td>
                 <td class="text-center">
-                  <el-button
-                    type="warning"
-                    v-if="item.status === 'DISPONIBLE'"
-                    @click="onChangeStatus(item, 'MANTENIMIENTO')"
-                    :disabled="loading"
-                  >
+                  <el-button type="warning" v-if="item.status === 'DISPONIBLE'"
+                    @click="onChangeStatus(item, 'MANTENIMIENTO')" :disabled="loading">
                     <i class="fa fa-tools"></i>
                     <span class="ml-2">MANTENIMIENTO</span>
                   </el-button>
-                  <el-button
-                    type="info"
-                    v-if="item.status === 'MANTENIMIENTO'"
-                    @click="onChangeStatus(item, 'DISPONIBLE')"
-                    :disabled="loading"
-                  >
+                  <el-button type="info" v-if="item.status === 'MANTENIMIENTO'"
+                    @click="onChangeStatus(item, 'DISPONIBLE')" :disabled="loading">
                     <i class="fa fa-check"></i>
                     <span class="ml-2">HABILITAR</span>
                   </el-button>
@@ -145,18 +132,10 @@
                   <span v-else>No</span>
                 </td>
                 <td class="text-center">
-                  <el-button
-                    type="success"
-                    @click="onEdit(item)"
-                    :disabled="loading"
-                  >
+                  <el-button type="success" @click="onEdit(item)" :disabled="loading">
                     <i class="fa fa-edit"></i>
                   </el-button>
-                  <el-button
-                    type="danger"
-                    @click="onDelete(item)"
-                    :disabled="loading"
-                  >
+                  <el-button type="danger" @click="onDelete(item)" :disabled="loading">
                     <i class="fa fa-trash"></i>
                   </el-button>
                 </td>
@@ -165,30 +144,15 @@
           </table>
         </div>
         <div class="text-center">
-          <el-pagination
-            :page-size="paginator.per_page"
-            :page-count="paginator.size"
-            layout="prev, pager, next"
-            :total="paginator.total"
-            :current-page.sync="filter.page"
-            @current-change="onFilter"
-          >
+          <el-pagination :page-size="paginator.per_page" :page-count="paginator.size" layout="prev, pager, next"
+            :total="paginator.total" :current-page.sync="filter.page" @current-change="onFilter">
           </el-pagination>
         </div>
       </div>
     </div>
-    <ModalAddEdit
-      :visible.sync="openModalAddEdit"
-      @onAddItem="onAddItem"
-      @onUpdateItem="onUpdateItem"
-      :room="room"
-      :categories="categories"
-      :floors="floors"
-    ></ModalAddEdit>
-    <ModalRoomRates
-      :room="room"
-      :visible.sync="openModalRoomRates"
-    ></ModalRoomRates>
+    <ModalAddEdit :visible.sync="openModalAddEdit" @onAddItem="onAddItem" @onUpdateItem="onUpdateItem" :room="room"
+      :categories="categories" :floors="floors"></ModalAddEdit>
+    <ModalRoomRates :room="room" :visible.sync="openModalRoomRates"></ModalRoomRates>
   </div>
 </template>
 

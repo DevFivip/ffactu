@@ -1,6 +1,19 @@
 <template>
     <div>
-        <div class="page-header pr-0">
+
+        <section class="hero is-primary is-rounded">
+            <div class="hero-body">
+                <p class="title">
+                    Solicitar Cotización
+                </p>
+                <div class="buttons">
+                    <a class="button" :href="`/${resource}/create`">Nuevo</a>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- <div class="page-header pr-0">
             <h2><a href="/dashboard"><i class="fas fa-tachometer-alt"></i></a></h2>
             <ol class="breadcrumbs">
                 <li class="active"><span>Solicitar cotización </span></li>
@@ -8,11 +21,11 @@
             <div class="right-wrapper pull-right">
                 <a :href="`/${resource}/create`" class="btn btn-custom btn-sm  mt-2 mr-2"><i class="fa fa-plus-circle"></i> Nuevo</a>
             </div>
-        </div>
+        </div> -->
         <div class="card mb-0">
             <div class="data-table-visible-columns"> 
             </div>
-            <div class="card-body">
+            <div class="card-content">
                 <data-table :resource="resource">
                     <tr slot="heading">
                         <th>#</th>

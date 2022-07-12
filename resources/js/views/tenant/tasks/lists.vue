@@ -1,12 +1,13 @@
 <template>
     <div class="card">
-        <div class="card-header bg-info">
+        <!-- <div class="card-header bg-success">
             <h3 class="my-0">Tareas programadas</h3>
-        </div>
-        <div class="card-body">
+        </div> -->
+        <div class="card-content">
+            <span class="title">Tareas Programadas</span>
             <div class="row">
                 <div class="col">
-                    <button type="button" class="btn btn-custom btn-sm  mt-2 mr-2 mb-3" @click.prevent="clickCreate()"><i class="fa fa-plus-circle"></i> Nueva</button>
+                    <b-button type="is-primary"  @click.prevent="clickCreate()">Nueva</b-button>
                 </div>
             </div>
             <template>

@@ -108,7 +108,7 @@ nant<template>
                         <div class="form-group">
                             <label class="control-label">
                                     Notas
-                                <a href="#" @click.prevent="clickAddNote" class="text-center font-weight-bold text-info">[+ Agregar]</a>
+                                <a href="#" @click.prevent="clickAddNote" class="text-center font-weight-bold text-info">+ Agregar</a>
                             </label>
 
                             <table style="width: 100%">

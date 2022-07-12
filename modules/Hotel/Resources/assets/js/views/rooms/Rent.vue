@@ -1,21 +1,39 @@
 <template>
   <div>
-    <div class="page-header pr-0">
+
+
+    <section class="hero is-primary is-rounded">
+      <div class="hero-body">
+        <p class="title">
+          Hoteles
+        </p>
+        <p class="subtitle">
+          Rentar Habitación
+        </p>
+        <!-- <p class="buttons">
+          <b-button type="is-white" @click="onCreate">
+            Nuevo
+          </b-button>
+        </p> -->
+      </div>
+    </section>
+
+    <!-- <div class="page-header pr-0">
       <h2>
         <a href="/dashboard"><i class="fas fa-tachometer-alt"></i></a>
       </h2>
       <ol class="breadcrumbs">
         <li class="active"><span>RENTAR HABITACIÓN</span></li>
       </ol>
-    </div>
+    </div> -->
     <div class="card mb-0">
-      <div class="card-header bg-info">
+      <!-- <div class="card-header bg-success">
         <h3 class="my-0">RENTAR HABITACIÓN</h3>
-      </div>
-      <div class="card-body">
+      </div> -->
+      <div class="card-content">
         <div class="card">
           <div class="card-header">Datos de la habitación</div>
-          <div class="card-body">
+          <div class="card-content">
             <div class="row">
               <div class="col-12 col-md-6 form-group">
                 <div class="row">
@@ -59,7 +77,7 @@
 
         <div class="card">
           <div class="card-header">Datos del cliente</div>
-          <div class="card-body">
+          <div class="card-content">
             <div
               class="form-group"
               :class="{ 'has-danger': errors.customer_id }"
@@ -149,7 +167,7 @@
 
         <div class="card">
           <div class="card-header">Datos del alojamiento</div>
-          <div class="card-body">
+          <div class="card-content">
             <div class="row">
               <div
                 class="col-12 col-md-4 form-group"

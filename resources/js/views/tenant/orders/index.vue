@@ -23,7 +23,7 @@
       <div class="right-wrapper pull-right"></div>
     </div> -->
     <div class="card mb-0">
-      <!-- <div class="card-header bg-info">
+      <!-- <div class="card-header bg-success">
         <h3 class="my-0">Listado de Pedidos Tienda Virtual</h3>
       </div> -->
       <div class="card-content">
