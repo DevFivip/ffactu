@@ -2,6 +2,7 @@
 <html lang="en">
 
 <!-- Mirrored from portotheme.com/html/porto_ecommerce/demo-6/cart.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 07 Sep 2019 03:40:04 GMT -->
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -28,9 +29,10 @@
     <link rel="stylesheet" href="{{ asset('porto-ecommerce/assets/font-awesome/css/fontawesome-all.min.css') }}">
 
     @if (file_exists(public_path('theme/custom_styles_ecommerce.css')))
-        <link rel="stylesheet" href="{{ asset('theme/custom_styles_ecommerce.css') }}" />
+    <link rel="stylesheet" href="{{ asset('theme/custom_styles_ecommerce.css') }}" />
     @endif
 </head>
+
 <body>
     <div class="page-wrapper">
         @include('ecommerce::layouts.partials_ecommerce.header')
@@ -46,7 +48,7 @@
             </nav>
 
             <div class="container">
-                 @yield('content')
+                @yield('content')
             </div><!-- End .container -->
 
             <div class="mb-6"></div><!-- margin -->
@@ -67,7 +69,7 @@
 
     <a id="scroll-top" href="#top" title="Top" role="button"><i class="icon-angle-up"></i></a>
 
-     <!-- Plugins JS File -->
+    <!-- Plugins JS File -->
     <script src="{{ asset('porto-ecommerce/assets/js/jquery.min.js') }}"></script>
     <script src="{{ asset('porto-ecommerce/assets/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('porto-ecommerce/assets/js/plugins.min.js') }}"></script>
@@ -84,4 +86,5 @@
 </body>
 
 <!-- Mirrored from portotheme.com/html/porto_ecommerce/demo-6/cart.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 07 Sep 2019 03:40:04 GMT -->
+
 </html>
